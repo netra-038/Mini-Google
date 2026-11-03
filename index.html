@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Netra's Mini Google 1998 ✨ Cloud Dream Portal</title>
+  <style>
+    /* ── Dreamy Pastel Sky Theme ── */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Comfortaa', 'Quicksand', 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      color: #334155;
+      background: linear-gradient(135deg, #F0E8FF 0%, #FFE9F3 25%, #E6F4FF 60%, #E8FBF4 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── Floating Aurora Orbs ── */
+    .dream-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb 22s infinite alternate ease-in-out;
+    }
+    .orb-1 { width: 550px; height: 550px; background: #FFD1EC; top: -120px; left: -100px; animation-duration: 20s; }
+    .orb-2 { width: 600px; height: 600px; background: #CDEBFF; top: 35%; right: -150px; animation-duration: 25s; }
+    .orb-3 { width: 480px; height: 480px; background: #E6D5FF; bottom: -80px; left: 15%; animation-duration: 22s; }
+    .orb-4 { width: 420px; height: 420px; background: #D2F7EE; top: 12%; right: 25%; animation-duration: 28s; }
+
+    @keyframes floatOrb {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(40px, 30px) scale(1.08); }
+      100% { transform: translate(-30px, 50px) scale(0.95); }
+    }
+
+    /* ── Interactive Stardust Canvas ── */
+    #dream-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ══════════════════════════════════════════════════
+       FRONT PAGE: DREAM CLOUD PORTAL
+    ══════════════════════════════════════════════════ */
+    #landing-screen {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .landing-header {
+      margin-bottom: 24px;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .landing-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1.5px dashed #D8B4FE;
+      color: #7C3AED;
+      padding: 6px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 16px rgba(216, 180, 254, 0.28);
+      margin-bottom: 12px;
+    }
+
+    .landing-title {
+      font-size: 48px;
+      font-weight: 900;
+      color: #3B0764;
+      margin: 6px 0;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 14px rgba(59, 7, 100, 0.08);
+    }
+    .landing-title span {
+      background: linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .landing-desc {
+      font-size: 16px;
+      color: #64748B;
+      font-weight: 600;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── BIG INTERACTIVE CENTER CLOUD ── */
+    .main-cloud-wrapper {
+      position: relative;
+      margin: 30px auto;
+      cursor: pointer;
+      user-select: none;
+      animation: cloudFloat 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes cloudFloat {
+      0%   { transform: translateY(0px) scale(1); }
+      100% { transform: translateY(-14px) scale(1.02); }
+    }
+
+    .main-cloud {
+      width: 320px;
+      height: 190px;
+      background: #FFFFFF;
+      border-radius: 100px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 14px 40px rgba(168, 85, 247, 0.25),
+        0 0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 0 20px rgba(236, 72, 153, 0.12);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 3px solid #F3E8FF;
+    }
+
+    /* Fluffy cloud puffs */
+    .main-cloud::before {
+      content: '';
+      position: absolute;
+      background: #FFFFFF;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      top: -65px;
+      left: 45px;
+      box-shadow: -4px 0 16px rgba(168, 85, 247, 0.08);
+    }
+    .main-cloud::after {
+      content: '';
+      position: absolute;
+      background: #FFFFFF;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      top: -45px;
+      right: 45px;
+      box-shadow: 4px 0 16px rgba(168, 85, 247, 0.08);
+    }
+
+    .main-cloud:hover {
+      transform: scale(1.08) translateY(-6px);
+      box-shadow:
+        0 20px 50px rgba(168, 85, 247, 0.35),
+        0 0 0 14px rgba(255, 255, 255, 0.6),
+        0 0 0 26px rgba(236, 72, 153, 0.2);
+    }
+    .main-cloud:active {
+      transform: scale(0.98);
+    }
+
+    .cloud-content {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .cloud-icon {
+      font-size: 32px;
+      margin-bottom: 2px;
+      animation: bouncePulse 2s infinite ease-in-out;
+    }
+
+    @keyframes bouncePulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.15); }
+    }
+
+    .cloud-action {
+      font-size: 19px;
+      font-weight: 900;
+      color: #5B21B6;
+      letter-spacing: -0.3px;
+    }
+
+    .cloud-hint {
+      font-size: 12px;
+      font-weight: 800;
+      color: #EC4899;
+      margin-top: 4px;
+      background: #FDF2F8;
+      padding: 3px 12px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    /* ── FLOATING FUN FACT CLOUDS ── */
+    .fact-cloud-container {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      min-height: 200px;
+      margin-top: 10px;
+    }
+
+    .fact-cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 24px rgba(100, 80, 140, 0.1);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      user-select: none;
+      animation: floatSubtle 6s infinite ease-in-out alternate;
+    }
+
+    .fact-cloud:hover {
+      transform: scale(1.14) translateY(-6px) !important;
+      background: #FFFFFF;
+      box-shadow: 0 14px 34px rgba(168, 85, 247, 0.25);
+      border-color: #C084FC;
+    }
+
+    .fc-icon {
+      font-size: 20px;
+    }
+    .fc-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #1E293B;
+    }
+    .fc-badge {
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
+    /* Floating positions for 6 fact clouds */
+    .fc-1 { top: 0px; left: 4%; animation-duration: 5.5s; }
+    .fc-1 .fc-badge { background: #FFE4EC; color: #BE123C; }
+
+    .fc-2 { top: 15px; right: 5%; animation-duration: 6.8s; }
+    .fc-2 .fc-badge { background: #FFF7ED; color: #C2410C; }
+
+    .fc-3 { top: 90px; left: 12%; animation-duration: 6.2s; }
+    .fc-3 .fc-badge { background: #FEFCE8; color: #A16207; }
+
+    .fc-4 { top: 85px; right: 14%; animation-duration: 7.5s; }
+    .fc-4 .fc-badge { background: #ECFDF5; color: #047857; }
+
+    .fc-5 { top: 155px; left: 28%; animation-duration: 6.4s; }
+    .fc-5 .fc-badge { background: #F0F9FF; color: #0369A1; }
+
+    .fc-6 { top: 155px; right: 28%; animation-duration: 5.8s; }
+    .fc-6 .fc-badge { background: #FAF5FF; color: #7E22CE; }
+
+    @keyframes floatSubtle {
+      0%   { transform: translateY(0px); }
+      100% { transform: translateY(-10px); }
+    }
+
+    /* ══════════════════════════════════════════════════
+       MAIN SEARCH ENGINE (SCREEN 2)
+    ══════════════════════════════════════════════════ */
+    #app-container {
+      display: none;
+      opacity: 0;
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+      transition: opacity 0.5s ease;
+    }
+
+    /* Top Sky Navigation Bar */
+    .top-sky-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .sky-nav-btn {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid #E2E8F0;
+      border-radius: 999px;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-family: inherit;
+      font-weight: 800;
+      color: #6D28D9;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .sky-nav-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      background: #FFFFFF;
+      box-shadow: 0 8px 20px rgba(109, 40, 217, 0.15);
+      border-color: #C4B5FD;
+    }
+
+    /* ── Logo: Playful Candy Dream Letters ── */
+    #logo {
+      text-align: center;
+      font-size: 58px;
+      font-weight: 900;
+      margin: 14px 0 4px;
+      letter-spacing: -0.5px;
+      cursor: default;
+      user-select: none;
+    }
+
+    #logo span {
+      display: inline-block;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.28s;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.06));
+    }
+    #logo span:hover {
+      transform: translateY(-10px) scale(1.24) rotate(5deg);
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+    }
+
+    #logo .n1  { color: #F43F5E; }
+    #logo .n2  { color: #FB923C; }
+    #logo .n3  { color: #FBBF24; }
+    #logo .n4  { color: #34D399; }
+    #logo .n5  { color: #38BDF8; }
+    #logo .n6  { color: #F43F5E; }
+    #logo .n7  { color: #A855F7; }
+    #logo .n8  { color: #F43F5E; }
+    #logo .g1  { color: #EC4899; }
+    #logo .g2  { color: #F59E0B; }
+    #logo .g3  { color: #10B981; }
+    #logo .g4  { color: #3B82F6; }
+    #logo .g5  { color: #8B5CF6; }
+    #logo .g6  { color: #F43F5E; }
+    #logo .g7  { color: #FB923C; }
+    #logo .g8  { color: #FBBF24; }
+    #logo .g9  { color: #2DD4BF; }
+    #logo .g10 { color: #38BDF8; }
+    #logo .g11 { color: #A855F7; }
+
+    #year-tag-container {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    #year-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(12px);
+      border: 1.5px dashed #D8B4FE;
+      border-radius: 999px;
+      padding: 6px 20px;
+      color: #7C3AED;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 20px rgba(216, 180, 254, 0.28);
+    }
+
+    /* ── Search Area with Glassmorphism ── */
+    #search-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    #search-input {
+      width: 440px;
+      max-width: 78vw;
+      padding: 13px 44px 13px 24px;
+      font-size: 16px;
+      font-family: inherit;
+      font-weight: 600;
+      color: #1E293B;
+      border: 2.5px solid #FCE7F3;
+      border-radius: 999px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 28px rgba(236, 72, 153, 0.14);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #search-input:focus {
+      border-color: #38BDF8;
+      background: #FFFFFF;
+      box-shadow: 0 10px 32px rgba(56, 189, 248, 0.28);
+      transform: scale(1.015);
+    }
+
+    #clear-btn {
+      position: absolute;
+      right: 14px;
+      background: #F1F5F9;
+      color: #94A3B8;
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      transition: all 0.15s;
+    }
+    #clear-btn:hover {
+      background: #FDA4AF;
+      color: #FFFFFF;
+    }
+
+    #search-btn {
+      padding: 13px 26px;
+      font-size: 15px;
+      font-family: inherit;
+      font-weight: 800;
+      background: linear-gradient(135deg, #F472B6 0%, #FB923C 50%, #FBBF24 100%);
+      color: white;
+      border: 2px solid #FFFFFF;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.38);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #search-btn:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 10px 28px rgba(244, 114, 182, 0.52);
+    }
+
+    #surprise-btn {
+      padding: 13px 22px;
+      font-size: 14.5px;
+      font-family: inherit;
+      font-weight: 800;
+      background: linear-gradient(135deg, #C084FC 0%, #818CF8 100%);
+      color: white;
+      border: 2px solid #FFFFFF;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(192, 132, 252, 0.35);
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #surprise-btn:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 10px 28px rgba(192, 132, 252, 0.5);
+    }
+
+    /* ── Example Chips with Dreamy Pastel Tones ── */
+    #examples {
+      text-align: center;
+      margin-bottom: 24px;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 2.3;
+    }
+
+    .examples-label {
+      font-size: 13px;
+      color: #9333EA;
+      font-weight: 800;
+      margin-right: 6px;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 4px 14px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(147, 51, 234, 0.12);
+    }
+
+    .ex-btn {
+      margin: 4px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-family: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+      transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border-width: 1.5px;
+      border-style: solid;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+    }
+    .ex-btn:hover {
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+    }
+
+    .ex-btn:nth-of-type(1)  { background: #FFF1F5; border-color: #FDA4AF; color: #9F1239; }
+    .ex-btn:nth-of-type(2)  { background: #FFF7ED; border-color: #FDBA74; color: #9A3412; }
+    .ex-btn:nth-of-type(3)  { background: #FEFCE8; border-color: #FDE047; color: #854D0E; }
+    .ex-btn:nth-of-type(4)  { background: #FAF5FF; border-color: #D8B4FE; color: #6B21A8; }
+    .ex-btn:nth-of-type(5)  { background: #ECFDF5; border-color: #6EE7B7; color: #065F46; }
+    .ex-btn:nth-of-type(6)  { background: #F0F9FF; border-color: #7DD3FC; color: #075985; }
+    .ex-btn:nth-of-type(7)  { background: #FFF7ED; border-color: #FDBA74; color: #C2410C; }
+    .ex-btn:nth-of-type(8)  { background: #FDF2F8; border-color: #F472B6; color: #9D174D; }
+    .ex-btn:nth-of-type(9)  { background: #FEFCE8; border-color: #FDE68A; color: #92400E; }
+    .ex-btn:nth-of-type(10) { background: #F5F3FF; border-color: #C4B5FD; color: #5B21B6; }
+    .ex-btn:nth-of-type(11) { background: #FFF1F2; border-color: #FB7185; color: #881337; }
+    .ex-btn:nth-of-type(12) { background: #F0FDFA; border-color: #5EEAD4; color: #115E59; }
+    .ex-btn:nth-of-type(13) { background: #ECFDF5; border-color: #86EFAC; color: #166534; }
+
+    /* ── Dynamic Result Stats Banner ── */
+    #results-stats {
+      text-align: center;
+      margin: 12px 0 18px;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #64748B;
+      display: none;
+    }
+    #results-stats strong {
+      color: #7C3AED;
+    }
+
+    /* ── Results Columns Area ── */
+    #results-area {
+      display: flex;
+      gap: 24px;
+      margin-top: 10px;
+    }
+    .col {
+      flex: 1;
+    }
+
+    .col h2 {
+      font-size: 16px;
+      font-weight: 900;
+      margin: 0 0 16px;
+      padding: 13px 20px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    #col-old h2 {
+      background: linear-gradient(135deg, #FFD1EC 0%, #FFE4F2 100%);
+      color: #9D174D;
+    }
+
+    #col-surf h2 {
+      background: linear-gradient(135deg, #BAE6FD 0%, #D1FAE5 100%);
+      color: #0369A1;
+    }
+
+    /* ── Result Cards: Frosted Dream Glass ── */
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      border-radius: 22px;
+      padding: 16px 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 8px 24px rgba(140, 120, 180, 0.07);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      border-left-width: 6px;
+      transition: all 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-4px) scale(1.018);
+      box-shadow: 0 14px 34px rgba(140, 120, 180, 0.16);
+      background: #FFFFFF;
+    }
+
+    #col-old .card {
+      border-left-color: #F43F5E;
+    }
+    #col-surf .card {
+      border-left-color: #06B6D4;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .card-rank {
+      font-size: 11px;
+      font-weight: 900;
+      padding: 3px 11px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+    }
+    #col-old .card-rank {
+      background: #FFE4EC;
+      color: #BE123C;
+    }
+    #col-surf .card-rank {
+      background: #E0F2FE;
+      color: #0369A1;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .card-btn {
+      background: rgba(241, 245, 249, 0.9);
+      border: 1px solid #E2E8F0;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 11px;
+      font-family: inherit;
+      font-weight: 800;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .card-btn:hover {
+      background: #EDE9FE;
+      color: #6D28D9;
+      border-color: #DDD6FE;
+      transform: scale(1.05);
+    }
+
+    .card-url {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-text {
+      font-size: 13.5px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .card-score {
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 12px;
+    }
+    #col-old .card-score {
+      background: #FFF1F2;
+      color: #9F1239;
+      border: 1px solid #FFE4E6;
+    }
+    #col-surf .card-score {
+      background: #ECFEFF;
+      color: #0E7490;
+      border: 1px solid #CFFAFE;
+    }
+
+    /* ── Dreamy Glowing Word Highlighter ── */
+    .hl {
+      background: #FEF08A;
+      color: #0F172A;
+      border-radius: 6px;
+      padding: 1px 6px;
+      font-weight: 900;
+      box-shadow: 0 2px 10px rgba(254, 240, 138, 0.7);
+    }
+
+    /* ── No Results Friendly Card ── */
+    #no-results {
+      display: none;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: #E11D48;
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px dashed #FDA4AF;
+      border-radius: 22px;
+      padding: 30px;
+      max-width: 520px;
+      margin: 40px auto 0;
+      box-shadow: 0 10px 30px rgba(225, 29, 72, 0.12);
+    }
+
+    /* ── Surfer Center Area ── */
+    #surfer-center {
+      text-align: center;
+      margin-top: 36px;
+      position: relative;
+    }
+
+    #surfer-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 38px;
+      font-size: 15.5px;
+      font-family: inherit;
+      font-weight: 800;
+      background: linear-gradient(135deg, #A855F7 0%, #38BDF8 50%, #34D399 100%);
+      color: white;
+      border: 2px solid #FFFFFF;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #surfer-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 14px 38px rgba(168, 85, 247, 0.55);
+    }
+
+    /* ── Surfer Progress Bar Animation ── */
+    #surfer-progress-bar {
+      width: 280px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 999px;
+      margin: 12px auto 0;
+      overflow: hidden;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+    #surfer-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #F472B6, #38BDF8, #34D399);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    #surfer-status {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid #E2E8F0;
+      border-radius: 999px;
+      padding: 6px 22px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #059669;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    /* ── Interactive Modal: Dreamy Page Inspector & Fun Facts ── */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(30, 27, 75, 0.35);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 580px;
+      border-radius: 26px;
+      padding: 24px 28px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+      border: 3px solid #F3E8FF;
+      animation: modalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes modalPop {
+      0%   { transform: scale(0.92); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px dashed #E2E8F0;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #4C1D95;
+    }
+
+    .modal-close {
+      background: #F1F5F9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 800;
+      color: #64748B;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .modal-close:hover {
+      background: #FDA4AF;
+      color: white;
+    }
+
+    .modal-section-title {
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #94A3B8;
+      margin: 12px 0 6px;
+    }
+
+    .modal-chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .link-chip {
+      background: #F5F3FF;
+      color: #6D28D9;
+      border: 1px solid #DDD6FE;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .link-chip:hover {
+      background: #6D28D9;
+      color: #FFFFFF;
+      transform: scale(1.05);
+    }
+
+    /* ── Dreamy Toast Alert ── */
+    #dream-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      color: #FFFFFF;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+    #dream-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating Dream Aurora Orbs -->
+<div class="dream-orb orb-1"></div>
+<div class="dream-orb orb-2"></div>
+<div class="dream-orb orb-3"></div>
+<div class="dream-orb orb-4"></div>
+
+<!-- Interactive Magical Stardust Canvas -->
+<canvas id="dream-canvas"></canvas>
+
+<!-- ══════════════════════════════════════════════════════
+     SCREEN 1: DREAM CLOUD PORTAL (FRONT PAGE)
+══════════════════════════════════════════════════════ -->
+<div id="landing-screen">
+
+  <div class="landing-header">
+    <div class="landing-tag">☁️ WELCOME TO THE DREAM SKY OF 1998</div>
+    <h1 class="landing-title">Netra's <span>Cloud Portal</span></h1>
+    <p class="landing-desc">
+      Explore the dawn of the search engine era! Click the floating clouds for fun facts, or click the big cloud below to enter Mini Google 1998.
+    </p>
+  </div>
+
+  <!-- BIG CLICKABLE CLOUD TO ENTER MAIN SEARCH ENGINE -->
+  <div class="main-cloud-wrapper" onclick="enterSearchEngine()" title="Click to enter Mini Google 1998!">
+    <div class="main-cloud">
+      <div class="cloud-content">
+        <div class="cloud-icon">☁️✨</div>
+        <div class="cloud-action">Click to Enter</div>
+        <div class="cloud-hint">Mini Google 1998</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING FUN FACT CLOUDS -->
+  <div class="fact-cloud-container">
+    <div class="fact-cloud fc-1" onclick="showFunFact(0)">
+      <span class="fc-icon">☁️</span>
+      <span class="fc-title">The Lego Server</span>
+      <span class="fc-badge">Fact #1</span>
+    </div>
+
+    <div class="fact-cloud fc-2" onclick="showFunFact(1)">
+      <span class="fc-icon">☁️</span>
+      <span class="fc-title">Keyword Spammers</span>
+      <span class="fc-badge">Fact #2</span>
+    </div>
+
+    <div class="fact-cloud fc-3" onclick="showFunFact(2)">
+      <span class="fc-icon">☁️</span>
+      <span class="fc-title">The Random Surfer</span>
+      <span class="fc-badge">Fact #3</span>
+    </div>
+
+    <div class="fact-cloud fc-4" onclick="showFunFact(3)">
+      <span class="fc-icon">☁️</span>
+      <span class="fc-title">Why Links Beat Words</span>
+      <span class="fc-badge">Fact #4</span>
+    </div>
+
+    <div class="fact-cloud fc-5" onclick="showFunFact(4)">
+      <span class="fc-icon">☁️</span>
+      <span class="fc-title">Web Size in 1998</span>
+      <span class="fc-badge">Fact #5</span>
+    </div>
+
+    <div class="fact-cloud fc-6" onclick="showFunFact(5)">
+      <span class="fc-icon">☁️</span>
+      <span class="fc-title">First Google Doodle</span>
+      <span class="fc-badge">Fact #6</span>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     SCREEN 2: MAIN SEARCH ENGINE
+══════════════════════════════════════════════════════ -->
+<div id="app-container">
+
+  <!-- Sky Nav Back Bar -->
+  <div class="top-sky-bar">
+    <button class="sky-nav-btn" onclick="returnToLanding()">
+      <span>☁️</span>
+      <span>Back to Cloud Portal & Facts</span>
+    </button>
+    <div style="font-size:12px; font-weight:800; color:#7C3AED;">✨ 1,020 Web Pages Indexed</div>
+  </div>
+
+  <!-- LOGO -->
+  <div id="logo">
+    <span class="n1">N</span><span class="n2">e</span><span class="n3">t</span><span class="n4">r</span><span class="n5">a</span><span class="n6">'</span><span class="n7">s</span><span class="n8">&nbsp;</span>
+    <span class="g1">M</span><span class="g2">i</span><span class="g3">n</span><span class="g4">i</span><span class="g5">&nbsp;</span><span class="g6">G</span><span class="g7">o</span><span class="g8">o</span><span class="g9">g</span><span class="g10">l</span><span class="g11">e</span>
+  </div>
+
+  <div id="year-tag-container">
+    <div id="year-tag">✨ 1998 Edition &mdash; Keyword vs. Random Surfer &mdash; 1020 Web Pages</div>
+  </div>
+
+  <!-- SEARCH BOX -->
+  <div id="search-area">
+    <div class="search-input-wrapper">
+      <input id="search-input" type="text" placeholder="Type a word or try an example..." oninput="handleSearchInput()" autocomplete="off" />
+      <button id="clear-btn" onclick="clearSearch()" title="Clear">✕</button>
+    </div>
+    <button id="search-btn" onclick="doSearch()">🔍 Search</button>
+    <button id="surprise-btn" onclick="randomSearch()">✨ Surprise Me!</button>
+  </div>
+
+  <!-- EXAMPLES / PICKS -->
+  <div id="examples">
+    <span class="examples-label">✨ Netra's picks:</span>
+    <button class="ex-btn" onclick="quickSearch('cricket')">🏏 cricket</button>
+    <button class="ex-btn" onclick="quickSearch('pizza')">🍕 pizza</button>
+    <button class="ex-btn" onclick="quickSearch('movie')">🎬 movie</button>
+    <button class="ex-btn" onclick="quickSearch('Bollywood')">🎭 Bollywood</button>
+    <button class="ex-btn" onclick="quickSearch('coding')">💻 coding</button>
+    <button class="ex-btn" onclick="quickSearch('music')">🎵 music</button>
+    <button class="ex-btn" onclick="quickSearch('travel')">✈️ travel</button>
+    <button class="ex-btn" onclick="quickSearch('exam')">📝 exam</button>
+    <button class="ex-btn" onclick="quickSearch('food')">🍛 food</button>
+    <button class="ex-btn" onclick="quickSearch('chess')">♟️ chess</button>
+    <button class="ex-btn" onclick="quickSearch('anime')">🎌 anime</button>
+    <button class="ex-btn" onclick="quickSearch('AI')">🤖 AI</button>
+    <button class="ex-btn" onclick="quickSearch('tech')">📱 tech</button>
+  </div>
+
+  <!-- SEARCH STATS -->
+  <div id="results-stats"></div>
+
+  <!-- NO RESULTS -->
+  <div id="no-results">
+    😅 Oops Netra! No pages found. Try "cricket" or "pizza" — the internet was simple in 1998!
+  </div>
+
+  <!-- RESULTS COLUMNS -->
+  <div id="results-area">
+    <div class="col" id="col-old">
+      <h2>🌸 Old way (1997) — count the word</h2>
+      <div id="old-results"></div>
+    </div>
+    <div class="col" id="col-surf">
+      <h2>🏄‍♀️ Surfer way (1998) — follow the links</h2>
+      <div id="surf-results"></div>
+    </div>
+  </div>
+
+  <!-- SURFER BUTTON & SIMULATION -->
+  <div id="surfer-center">
+    <button id="surfer-btn" onclick="runSurferInteractive()">🎲 Run the surfer again, Netra!</button>
+    <div id="surfer-progress-bar"><div id="surfer-progress-fill"></div></div>
+    <br />
+    <div id="surfer-status"></div>
+  </div>
+
+</div>
+
+<!-- INTERACTIVE MODAL (Page Inspector / Fun Facts) -->
+<div id="inspector-modal" class="modal-backdrop" onclick="closeInspectorOnBackdrop(event)">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title">🔗 Details</div>
+      <button class="modal-close" onclick="closeInspector()">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- TOAST ALERT -->
+<div id="dream-toast"></div>
+
+<script>
+// ── DATA: all 1020 pages ──────────────────────────────────────
+const PAGES = [
+  { id: 1, url: "pune-food-guide.com", text: "Where to eat in Pune - vada pav and biryani and pizza", links: [2] },
+  { id: 2, url: "best-pizza-pune.com", text: "Fresh wood-fired pizza made daily - try our cheese pizza", links: [1,3] },
+  { id: 3, url: "college-canteen-blog.com", text: "Student reviews of canteen food and chai and Friday pizza", links: [2,4] },
+  { id: 4, url: "pizza-recipes-home.com", text: "Make pizza at home - pizza dough and pizza sauce", links: [2,5] },
+  { id: 5, url: "cheap-eats-pune.com", text: "Good food under 100 rupees - misal and dosa and pizza slices", links: [2,6] },
+  { id: 6, url: "pizza-pizza-pizza.com", text: "pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza", links: [1] },
+  { id: 7, url: "cricket-live-scores.com", text: "Live cricket scores and ball by ball cricket updates", links: [8,10] },
+  { id: 8, url: "ipl-fan-club.in", text: "IPL fan chat - team news and cricket memes", links: [7,9] },
+  { id: 9, url: "school-cricket-coach.com", text: "Learn cricket batting and bowling with simple drills", links: [7,10] },
+  { id: 10, url: "cricket-history-india.com", text: "Great moments from the history of Indian cricket", links: [7] },
+  { id: 11, url: "cricket-cricket-cricket.com", text: "cricket cricket cricket cricket cricket cricket cricket cricket cricket cricket", links: [7] },
+  { id: 12, url: "bollywood-movie-reviews.in", text: "Honest reviews of every new Bollywood movie released on Friday", links: [13,15] },
+  { id: 13, url: "movie-ticket-offers.com", text: "Cheap movie tickets and weekend offers in Pune", links: [12,1] },
+  { id: 14, url: "film-club-college.com", text: "Our college film club watches one movie every week", links: [12,17] },
+  { id: 15, url: "classic-movie-songs.com", text: "Old movie songs and the stories behind each movie", links: [12,13,14] },
+  { id: 16, url: "free-movie-free-movie.com", text: "free movie free movie free movie free movie free movie movie movie movie movie movie", links: [12] },
+  { id: 17, url: "exam-tips-for-students.com", text: "Smart exam tips - sleep well and practise old exam papers", links: [18,3] },
+  { id: 18, url: "college-notes-share.com", text: "Share class notes with friends before the exam", links: [17,19] },
+  { id: 19, url: "pune-college-news.in", text: "News from Pune colleges - fest dates and exam timetables and cricket matches", links: [1,7,12,17] },
+  { id: 20, url: "exam-exam-exam.com", text: "exam exam exam exam exam exam exam exam exam exam", links: [17] },
+  { id: 21, url: "pizza-lover.com", text: "Best pizza in the city - try our margherita and dough special", links: [2,3] },
+  { id: 22, url: "century-club.in", text: "Fantasy cricket tips - pick your fielding and ODI team", links: [4,302] },
+  { id: 23, url: "cinema-buff.co", text: "Why this movie is a must-watch - star and review explained", links: [4,1013] },
+  { id: 24, url: "pass-with-ease.com", text: "Common exam mistakes - avoid these timetable and marks errors", links: [314,380,514,744] },
+  { id: 25, url: "thali-time.in", text: "Easy spice recipe for beginners - taste and cook in 20 minutes", links: [17,545,985] },
+  { id: 26, url: "byte-sized.dev", text: "error interview questions - coding concepts and git problems", links: [376] },
+  { id: 27, url: "budget-travel.com", text: "Complete mountain guide to guide - destination tips you need to know", links: [2] },
+  { id: 28, url: "bass-notes.in", text: "How to play track on guitar - beginner melody lessons", links: [888,948] },
+  { id: 29, url: "lean-gains.fit", text: "Best workout fitness for beginners - start your health journey", links: [659] },
+  { id: 30, url: "product-launch-in.com", text: "Best tech software of 2024 - device tested and reviewed", links: [9,170,1015] },
+  { id: 31, url: "pizza-lover-10.net", text: "Weekend guide to oven - yum lovers unite for cheese night", links: [14,21,197,511] },
+  { id: 32, url: "century-club-11.net", text: "Fantasy cricket tips - pick your run and captain team", links: [102,792] },
+  { id: 33, url: "cinema-buff-12.com", text: "Behind the scenes of the biggest movie - director and scene stories", links: [413,433] },
+  { id: 34, url: "pass-with-ease-13.in", text: "Common exam mistakes - avoid these timetable and score errors", links: [204] },
+  { id: 35, url: "thali-time-14.net", text: "food tour of the city - restaurant stalls and meal corners", links: [107,845] },
+  { id: 36, url: "byte-sized-15.com", text: "Build a debug project using git and build in one weekend", links: [486] },
+  { id: 37, url: "budget-travel-16.in", text: "Complete visit guide to bag - explore tips you need to know", links: [9,327,877] },
+  { id: 38, url: "bass-notes-17.fm", text: "Top song albums this month - singer and playlist are fire", links: [71,588,968] },
+  { id: 39, url: "lean-gains-18.com", text: "30-day weight plan - gym every morning and stretch at night", links: [7,449,549] },
+  { id: 40, url: "product-launch-in-19.in", text: "Budget feature picks - best update under 10k for AI", links: [17,640,690,900] },
+  { id: 41, url: "pizza-lover-20.com", text: "Weekend guide to pepperoni - calzone lovers unite for crust night", links: [13,20,189,761] },
+  { id: 42, url: "century-club-21.com", text: "Cricket match review - boundary and batting highlights from today", links: [15,742,867,992] },
+  { id: 43, url: "cinema-buff-22.in", text: "Review: new movie out this Friday - script gives a stunning scene", links: [5,94,723] },
+  { id: 44, url: "pass-with-ease-23.org", text: "Common exam mistakes - avoid these revision and test errors", links: [8,331,984] },
+  { id: 45, url: "thali-time-24.com", text: "Healthy biryani ideas - swap restaurant for dosa daily", links: [261] },
+  { id: 46, url: "byte-sized-25.io", text: "Build a debug project using git and python in one weekend", links: [5] },
+  { id: 47, url: "budget-travel-26.travel", text: "Best beach spots near Pune - travel and hotel on a budget", links: [4,10,19,537] },
+  { id: 48, url: "bass-notes-27.com", text: "Top playlist albums this month - lyrics and band are fire", links: [15,18,258,588] },
+  { id: 49, url: "lean-gains-28.in", text: "Quick cardio tips - strength in 15 minutes and better diet", links: [9,269,818] },
+  { id: 50, url: "product-launch-in-29.tech", text: "update news: device launches new startup with exciting features", links: [10,320,410,550] },
+  { id: 51, url: "pizza-lover-30.net", text: "Best margherita in the city - try our cheese and sauce special", links: [16] },
+  { id: 52, url: "century-club-31.in", text: "Cricket match review - pitch and fielding highlights from today", links: [19,162] },
+  { id: 53, url: "cinema-buff-32.co", text: "Why this movie is a must-watch - scene and film explained", links: [793] },
+  { id: 54, url: "pass-with-ease-33.com", text: "How to score full marks in exam - marks strategy and notes hacks", links: [234] },
+  { id: 55, url: "thali-time-34.in", text: "Weekend cook fest - dosa specials and free taste samples", links: [105,795,804] },
+  { id: 56, url: "byte-sized-35.dev", text: "function interview questions - coding concepts and python problems", links: [19,762] },
+  { id: 57, url: "budget-travel-36.com", text: "Best bag spots near Pune - place and bus on a budget", links: [3,18,308,917] },
+  { id: 58, url: "bass-notes-37.in", text: "lyrics history - how singer shaped modern melody", links: [15,18,572,1008] },
+  { id: 59, url: "lean-gains-38.fit", text: "30-day exercise plan - workout every morning and strength at night", links: [16,689] },
+  { id: 60, url: "product-launch-in-39.com", text: "Best laptop device of 2024 - camera tested and reviewed", links: [386,460,610,650] },
+  { id: 61, url: "pizza-lover-40.com", text: "Weekend guide to bake - mozzarella lovers unite for calzone night", links: [17,191] },
+  { id: 62, url: "century-club-41.net", text: "Top cricket moments of the season - captain and IPL shine", links: [8,722,832,870] },
+  { id: 63, url: "cinema-buff-42.com", text: "Review: new movie out this Friday - scene gives a stunning review", links: [3,703,715,753] },
+  { id: 64, url: "pass-with-ease-43.in", text: "Stress-free exam prep - answer routine and score schedule", links: [124,474] },
+  { id: 65, url: "thali-time-44.net", text: "food tour of the city - biryani stalls and dosa corners", links: [8] },
+  { id: 66, url: "byte-sized-45.com", text: "Build a hack project using variable and algorithm in one weekend", links: [376,870] },
+  { id: 67, url: "budget-travel-46.in", text: "Best hotel spots near Pune - mountain and trip on a budget", links: [8,12,367,897] },
+  { id: 68, url: "bass-notes-47.fm", text: "Top music albums this month - beat and concert are fire", links: [338] },
+  { id: 69, url: "lean-gains-48.com", text: "Best sleep health for beginners - start your workout journey", links: [7,389,489] },
+  { id: 70, url: "product-launch-in-49.in", text: "Best battery screen of 2024 - review tested and reviewed", links: [9,460] },
+  { id: 71, url: "pizza-lover-50.net", text: "Review of pizza places - topping was amazing and margherita was perfect", links: [12,111,171,701] },
+  { id: 72, url: "century-club-51.com", text: "Cricket match review - boundary and Test highlights from today", links: [442] },
+  { id: 73, url: "cinema-buff-52.in", text: "Top 10 movie of the year - trailer and review made the list", links: [5,9,97,563] },
+  { id: 74, url: "pass-with-ease-53.org", text: "Last minute exam tips - focus on revision and revise paper", links: [94,394,794,954] },
+  { id: 75, url: "thali-time-54.com", text: "Weekend restaurant fest - dosa specials and free vada samples", links: [55,425,1010] },
+  { id: 76, url: "byte-sized-55.io", text: "Top variable tips - write cleaner array and faster loop", links: [446,796] },
+  { id: 77, url: "budget-travel-56.travel", text: "Complete guide guide to mountain - trip tips you need to know", links: [397,470,657] },
+  { id: 78, url: "bass-notes-57.com", text: "Top concert albums this month - tune and playlist are fire", links: [12,13] },
+  { id: 79, url: "lean-gains-58.in", text: "How gym changed my life - workout habit and diet mindset", links: [499] },
+  { id: 80, url: "product-launch-in-59.tech", text: "Budget update picks - best gadget under 10k for review", links: [220,480] },
+  { id: 81, url: "pizza-lover-60.com", text: "Review of topping places - oven was amazing and crust was perfect", links: [10,17,101,591] },
+  { id: 82, url: "century-club-61.in", text: "Cricket coaching guide - master run and ODI", links: [222,442] },
+  { id: 83, url: "cinema-buff-62.co", text: "Behind the scenes of the biggest movie - trailer and star stories", links: [400] },
+  { id: 84, url: "pass-with-ease-63.com", text: "Download free exam college notes and sample revision papers", links: [433,704,884] },
+  { id: 85, url: "thali-time-64.in", text: "Best street curry in Pune - chai and restaurant are a must try", links: [18] },
+  { id: 86, url: "byte-sized-65.dev", text: "Top debug tips - write cleaner class and faster build", links: [10,276,497] },
+  { id: 87, url: "budget-travel-66.com", text: "Hidden bag gems - trip and hotel off the beaten path", links: [51] },
+  { id: 88, url: "bass-notes-67.in", text: "Best track for studying - song playlists and tune beats", links: [208,218,638] },
+  { id: 89, url: "lean-gains-68.fit", text: "Best diet strength for beginners - start your protein journey", links: [8,19,49,119] },
+  { id: 90, url: "product-launch-in-69.com", text: "battery news: startup launches new tech with exciting features", links: [4,8,11,120] },
+  { id: 91, url: "pizza-lover-70.net", text: "Best dough in the city - try our cheese and pizza special", links: [346,431] },
+  { id: 92, url: "century-club-71.net", text: "Cricket coaching guide - master century and batting", links: [132,138,572,962] },
+  { id: 93, url: "cinema-buff-72.com", text: "Behind the scenes of the biggest movie - cinema and movie stories", links: [13,813,843] },
+  { id: 94, url: "pass-with-ease-73.in", text: "Common exam mistakes - avoid these notes and syllabus errors", links: [13,504,594] },
+  { id: 95, url: "thali-time-74.net", text: "Healthy cook ideas - swap biryani for spice daily", links: [3,12,94,285] },
+  { id: 96, url: "byte-sized-75.com", text: "Learn debug from scratch - project and algorithm for beginners", links: [5,506] },
+  { id: 97, url: "budget-travel-76.in", text: "Budget explore hacks - save money on city and mountain", links: [17,197,737] },
+  { id: 98, url: "bass-notes-77.fm", text: "Top beat albums this month - artist and band are fire", links: [148,770,838] },
+  { id: 99, url: "lean-gains-78.com", text: "Quick diet tips - cardio in 15 minutes and better strength", links: [409] },
+  { id: 100, url: "product-launch-in-79.in", text: "Top battery device apps you need right now for AI", links: [159,690,750] },
+  { id: 101, url: "pizza-lover-80.com", text: "Review of pepperoni places - margherita was amazing and sauce was perfect", links: [16,621] },
+  { id: 102, url: "century-club-81.com", text: "Cricket match review - six and batting highlights from today", links: [12,82,492] },
+  { id: 103, url: "cinema-buff-82.in", text: "Top 10 movie of the year - director and sequel made the list", links: [16,453,607,673] },
+  { id: 104, url: "pass-with-ease-83.org", text: "Common exam mistakes - avoid these score and test errors", links: [9,424,894] },
+  { id: 105, url: "thali-time-84.com", text: "Easy food recipe for beginners - street and meal in 20 minutes", links: [5,17,225,659] },
+  { id: 106, url: "byte-sized-85.io", text: "Build a object project using array and debug in one weekend", links: [16,19] },
+  { id: 107, url: "budget-travel-86.travel", text: "Best bus spots near Pune - explore and city on a budget", links: [18,307,647] },
+  { id: 108, url: "bass-notes-87.com", text: "New song release - band drops surprise melody", links: [7,558] },
+  { id: 109, url: "lean-gains-88.in", text: "Best habit weight for beginners - start your gym journey", links: [459] },
+  { id: 110, url: "product-launch-in-89.tech", text: "Best device AI of 2024 - screen tested and reviewed", links: [11,13,1000] },
+  { id: 111, url: "pizza-lover-90.net", text: "Weekend guide to calzone - dough lovers unite for sauce night", links: [2,550,761] },
+  { id: 112, url: "century-club-91.in", text: "Cricket coaching guide - master batting and boundary", links: [7,562,712] },
+  { id: 113, url: "cinema-buff-92.co", text: "Top 10 movie of the year - review and award made the list", links: [605] },
+  { id: 114, url: "pass-with-ease-93.com", text: "How to score full marks in exam - tips strategy and study hacks", links: [2,6,10,896] },
+  { id: 115, url: "thali-time-94.in", text: "recipe tour of the city - taste stalls and curry corners", links: [10,15,25,965] },
+  { id: 116, url: "byte-sized-95.dev", text: "project interview questions - coding concepts and debug problems", links: [106,156] },
+  { id: 117, url: "budget-travel-96.com", text: "Complete hotel guide to place - city tips you need to know", links: [387,417] },
+  { id: 118, url: "bass-notes-97.in", text: "How to play melody on guitar - beginner concert lessons", links: [17,19] },
+  { id: 119, url: "lean-gains-98.fit", text: "How strength changed my life - cardio habit and sleep mindset", links: [398] },
+  { id: 120, url: "product-launch-in-99.com", text: "Budget AI picks - best screen under 10k for laptop", links: [12,15,16,870] },
+  { id: 121, url: "pizza-lover-100.com", text: "Best dough in the city - try our slice and pepperoni special", links: [11,16,19,321] },
+  { id: 122, url: "century-club-101.net", text: "How to improve your cricket run with simple pitch drills", links: [702] },
+  { id: 123, url: "cinema-buff-102.com", text: "Review: new movie out this Friday - movie gives a stunning award", links: [14,17,33,938] },
+  { id: 124, url: "pass-with-ease-103.in", text: "Stress-free exam prep - study routine and paper schedule", links: [3,754,904,924] },
+  { id: 125, url: "thali-time-104.net", text: "Weekend restaurant fest - food specials and free cook samples", links: [115,635] },
+  { id: 126, url: "byte-sized-105.com", text: "loop interview questions - variable concepts and project problems", links: [8,916] },
+  { id: 127, url: "budget-travel-106.in", text: "Weekend mountain idea - head to train and enjoy bag", links: [8,877] },
+  { id: 128, url: "bass-notes-107.fm", text: "Best melody for studying - beat playlists and song beats", links: [148,588] },
+  { id: 129, url: "lean-gains-108.com", text: "Quick stretch tips - yoga in 15 minutes and better strength", links: [6,379,419,500] },
+  { id: 130, url: "product-launch-in-109.in", text: "How laptop is changing tech - software trends to watch", links: [10,20,706] },
+  { id: 131, url: "pizza-lover-110.net", text: "Review of yum places - calzone was amazing and bake was perfect", links: [7,281,928] },
+  { id: 132, url: "century-club-111.com", text: "Cricket coaching guide - master ODI and six", links: [542,672,712,945] },
+  { id: 133, url: "cinema-buff-112.in", text: "Why this movie is a must-watch - blockbuster and star explained", links: [33,163,656,993] },
+  { id: 134, url: "pass-with-ease-113.org", text: "Stress-free exam prep - study routine and score schedule", links: [464] },
+  { id: 135, url: "thali-time-114.com", text: "Easy restaurant recipe for beginners - vada and cook in 20 minutes", links: [6,18] },
+  { id: 136, url: "byte-sized-115.io", text: "How to fix common function project errors in your hack", links: [7] },
+  { id: 137, url: "budget-travel-116.travel", text: "Weekend destination idea - head to beach and enjoy bag", links: [12] },
+  { id: 138, url: "bass-notes-117.com", text: "New beat release - album drops surprise rhythm", links: [38,583,658] },
+  { id: 139, url: "lean-gains-118.in", text: "30-day gym plan - run every morning and stretch at night", links: [18,669,1019] },
+  { id: 140, url: "product-launch-in-119.tech", text: "Top battery tech apps you need right now for startup", links: [150,340,600] },
+  { id: 141, url: "pizza-lover-120.com", text: "Review of pepperoni places - dough was amazing and slice was perfect", links: [387] },
+  { id: 142, url: "century-club-121.in", text: "Cricket match review - IPL and ODI highlights from today", links: [542] },
+  { id: 143, url: "cinema-buff-122.co", text: "Movie news: scene signs for exciting new review project", links: [4,39,753] },
+  { id: 144, url: "pass-with-ease-123.com", text: "Last minute exam tips - focus on syllabus and revise paper", links: [14] },
+  { id: 145, url: "thali-time-124.in", text: "sweet tour of the city - recipe stalls and snack corners", links: [12,177] },
+  { id: 146, url: "byte-sized-125.dev", text: "How to fix common build variable errors in your object", links: [19,156,921,996] },
+  { id: 147, url: "budget-travel-126.com", text: "Weekend visit idea - head to mountain and enjoy beach", links: [589,987] },
+  { id: 148, url: "bass-notes-127.in", text: "New melody release - song drops surprise music", links: [502] },
+  { id: 149, url: "lean-gains-128.fit", text: "Best stretch health for beginners - start your diet journey", links: [429] },
+  { id: 150, url: "product-launch-in-129.com", text: "Top review camera apps you need right now for screen", links: [11,14,970] },
+  { id: 151, url: "pizza-lover-130.net", text: "Review of topping places - dough was amazing and crust was perfect", links: [8] },
+  { id: 152, url: "century-club-131.net", text: "Fantasy cricket tips - pick your century and wicket team", links: [252] },
+  { id: 153, url: "cinema-buff-132.com", text: "Why this movie is a must-watch - cinema and dialogue explained", links: [12,23] },
+  { id: 154, url: "pass-with-ease-133.in", text: "Last minute exam tips - focus on exam and revise marks", links: [5,13,504,924] },
+  { id: 155, url: "thali-time-134.net", text: "street tour of the city - spice stalls and cook corners", links: [285] },
+  { id: 156, url: "byte-sized-135.com", text: "Build a error project using hack and build in one weekend", links: [346] },
+  { id: 157, url: "budget-travel-136.in", text: "Best guide spots near Pune - destination and place on a budget", links: [9] },
+  { id: 158, url: "bass-notes-137.fm", text: "How to play track on singer - beginner playlist lessons", links: [9,58,258,668] },
+  { id: 159, url: "lean-gains-138.com", text: "Home diet routine - no equipment yoga and habit guide", links: [13,412] },
+  { id: 160, url: "product-launch-in-139.in", text: "Best screen startup of 2024 - review tested and reviewed", links: [2,330,1020] },
+  { id: 161, url: "pizza-lover-140.com", text: "Review of pepperoni places - yum was amazing and topping was perfect", links: [18,651] },
+  { id: 162, url: "century-club-141.com", text: "How to improve your cricket match with simple Test drills", links: [19] },
+  { id: 163, url: "cinema-buff-142.in", text: "Movie news: scene signs for exciting new script project", links: [6,13,382] },
+  { id: 164, url: "pass-with-ease-143.org", text: "How to score full marks in exam - syllabus strategy and study hacks", links: [3,604,840] },
+  { id: 165, url: "thali-time-144.com", text: "Best street sweet in Pune - street and chai are a must try", links: [65,115] },
+  { id: 166, url: "byte-sized-145.io", text: "Top git tips - write cleaner algorithm and faster object", links: [14,19,276,296] },
+  { id: 167, url: "budget-travel-146.travel", text: "Best train spots near Pune - trip and hotel on a budget", links: [3,247,287,297] },
+  { id: 168, url: "bass-notes-147.com", text: "Best album for studying - concert playlists and music beats", links: [3,4,598] },
+  { id: 169, url: "lean-gains-148.in", text: "Quick habit tips - run in 15 minutes and better exercise", links: [5,769,882] },
+  { id: 170, url: "product-launch-in-149.tech", text: "Budget laptop picks - best AI under 10k for device", links: [140] },
+  { id: 171, url: "pizza-lover-150.net", text: "Review of yum places - slice was amazing and sauce was perfect", links: [6,9,16,361] },
+  { id: 172, url: "century-club-151.in", text: "Top cricket moments of the season - run and century shine", links: [5,382,867] },
+  { id: 173, url: "cinema-buff-152.co", text: "Review: new movie out this Friday - award gives a stunning dialogue", links: [968] },
+  { id: 174, url: "pass-with-ease-153.com", text: "Common exam mistakes - avoid these revision and syllabus errors", links: [16] },
+  { id: 175, url: "thali-time-154.in", text: "Easy spice recipe for beginners - dosa and snack in 20 minutes", links: [855] },
+  { id: 176, url: "byte-sized-155.dev", text: "Build a git project using class and object in one weekend", links: [4,19,776,876] },
+  { id: 177, url: "budget-travel-156.com", text: "Best guide spots near Pune - bag and destination on a budget", links: [10,57,462,877] },
+  { id: 178, url: "bass-notes-157.in", text: "beat history - how rhythm shaped modern album", links: [198,978] },
+  { id: 179, url: "lean-gains-158.fit", text: "30-day sleep plan - strength every morning and cardio at night", links: [17] },
+  { id: 180, url: "product-launch-in-159.com", text: "Best startup AI of 2024 - update tested and reviewed", links: [30,440] },
+  { id: 181, url: "pizza-lover-160.com", text: "cheese secrets revealed - margherita technique and sauce tips", links: [271] },
+  { id: 182, url: "century-club-161.net", text: "Cricket coaching guide - master run and IPL", links: [261,272,652] },
+  { id: 183, url: "cinema-buff-162.com", text: "Why this movie is a must-watch - sequel and movie explained", links: [4] },
+  { id: 184, url: "pass-with-ease-163.in", text: "Stress-free exam prep - question routine and study schedule", links: [284] },
+  { id: 185, url: "thali-time-164.net", text: "Best street dosa in Pune - recipe and sweet are a must try", links: [15,115,135,685] },
+  { id: 186, url: "byte-sized-165.com", text: "Learn error from scratch - project and coding for beginners", links: [856] },
+  { id: 187, url: "budget-travel-166.in", text: "Best place spots near Pune - route and bag on a budget", links: [15] },
+  { id: 188, url: "bass-notes-167.fm", text: "Top tune albums this month - rhythm and band are fire", links: [698,888] },
+  { id: 189, url: "lean-gains-168.com", text: "30-day protein plan - exercise every morning and health at night", links: [319,543] },
+  { id: 190, url: "product-launch-in-169.in", text: "tech news: review launches new battery with exciting features", links: [7] },
+  { id: 191, url: "pizza-lover-170.net", text: "How to make pizza at home with fresh sauce and homemade calzone", links: [5,16,143] },
+  { id: 192, url: "century-club-171.com", text: "Cricket match review - run and IPL highlights from today", links: [858] },
+  { id: 193, url: "cinema-buff-172.in", text: "Why this movie is a must-watch - sequel and review explained", links: [383,803,937,1003] },
+  { id: 194, url: "pass-with-ease-173.org", text: "How to score full marks in exam - marks strategy and tips hacks", links: [6,894,934] },
+  { id: 195, url: "thali-time-174.com", text: "Easy food recipe for beginners - dosa and restaurant in 20 minutes", links: [355,395] },
+  { id: 196, url: "byte-sized-175.io", text: "Learn build from scratch - variable and error for beginners", links: [8,15,736,741] },
+  { id: 197, url: "budget-travel-176.travel", text: "Best place spots near Pune - destination and route on a budget", links: [9] },
+  { id: 198, url: "bass-notes-177.com", text: "Top melody albums this month - tune and lyrics are fire", links: [272,417] },
+  { id: 199, url: "lean-gains-178.in", text: "30-day strength plan - health every morning and exercise at night", links: [635,829] },
+  { id: 200, url: "product-launch-in-179.tech", text: "How AI is changing review - gadget trends to watch", links: [250] },
+  { id: 201, url: "pizza-lover-180.com", text: "Best topping in the city - try our calzone and dough special", links: [521] },
+  { id: 202, url: "century-club-181.in", text: "Fantasy cricket tips - pick your wicket and fielding team", links: [13,52,872,928] },
+  { id: 203, url: "cinema-buff-182.co", text: "Review: new movie out this Friday - sequel gives a stunning star", links: [204] },
+  { id: 204, url: "pass-with-ease-183.com", text: "Common exam mistakes - avoid these study and score errors", links: [954] },
+  { id: 205, url: "thali-time-184.in", text: "Weekend biryani fest - meal specials and free chai samples", links: [9,345,435] },
+  { id: 206, url: "byte-sized-185.dev", text: "Build a error project using build and algorithm in one weekend", links: [62,648] },
+  { id: 207, url: "budget-travel-186.com", text: "Hidden mountain gems - trip and train off the beaten path", links: [5,817,907] },
+  { id: 208, url: "bass-notes-187.in", text: "Best artist for studying - music playlists and band beats", links: [2,4] },
+  { id: 209, url: "lean-gains-188.fit", text: "Quick gym tips - diet in 15 minutes and better run", links: [5,107,282,479] },
+  { id: 210, url: "product-launch-in-189.com", text: "screen news: AI launches new device with exciting features", links: [860] },
+  { id: 211, url: "pizza-lover-190.net", text: "bake secrets revealed - pepperoni technique and calzone tips", links: [121] },
+  { id: 212, url: "century-club-191.net", text: "How to improve your cricket six with simple run drills", links: [42] },
+  { id: 213, url: "cinema-buff-192.com", text: "Why this movie is a must-watch - trailer and review explained", links: [14,19,473,1013] },
+  { id: 214, url: "pass-with-ease-193.in", text: "Common exam mistakes - avoid these exam and revision errors", links: [9,630] },
+  { id: 215, url: "thali-time-194.net", text: "Weekend curry fest - street specials and free spice samples", links: [6,475,535] },
+  { id: 216, url: "byte-sized-195.com", text: "variable interview questions - python concepts and error problems", links: [20,830,956] },
+  { id: 217, url: "budget-travel-196.in", text: "Hidden mountain gems - destination and route off the beaten path", links: [1,817] },
+  { id: 218, url: "bass-notes-197.fm", text: "track history - how singer shaped modern lyrics", links: [548,596,808] },
+  { id: 219, url: "lean-gains-198.com", text: "How diet changed my life - cardio habit and exercise mindset", links: [4,789] },
+  { id: 220, url: "product-launch-in-199.in", text: "How laptop is changing gadget - software trends to watch", links: [6,120,640] },
+  { id: 221, url: "pizza-lover-200.com", text: "sauce secrets revealed - topping technique and crust tips", links: [871] },
+  { id: 222, url: "century-club-201.com", text: "Cricket match review - pitch and ODI highlights from today", links: [15,532,545,722] },
+  { id: 223, url: "cinema-buff-202.in", text: "Top 10 movie of the year - award and scene made the list", links: [12,436,633] },
+  { id: 224, url: "pass-with-ease-203.org", text: "How to score full marks in exam - college strategy and revision hacks", links: [628,840] },
+  { id: 225, url: "thali-time-204.com", text: "Healthy sweet ideas - swap dosa for recipe daily", links: [1,355,455,985] },
+  { id: 226, url: "byte-sized-205.io", text: "Top build tips - write cleaner python and faster variable", links: [3,14,836] },
+  { id: 227, url: "budget-travel-206.travel", text: "Weekend route idea - head to beach and enjoy mountain", links: [8,247,267,557] },
+  { id: 228, url: "bass-notes-207.com", text: "album history - how song shaped modern band", links: [5,6,53,428] },
+  { id: 229, url: "lean-gains-208.in", text: "Quick cardio tips - exercise in 15 minutes and better strength", links: [371,479,649,719] },
+  { id: 230, url: "product-launch-in-209.tech", text: "Budget tech picks - best device under 10k for startup", links: [1,8,12,800] },
+  { id: 231, url: "pizza-lover-210.net", text: "Best bake in the city - try our mozzarella and cheese special", links: [3,6,7] },
+  { id: 232, url: "century-club-211.in", text: "How to improve your cricket cricket with simple pitch drills", links: [3,182] },
+  { id: 233, url: "cinema-buff-212.co", text: "Review: new movie out this Friday - scene gives a stunning dialogue", links: [723] },
+  { id: 234, url: "pass-with-ease-213.com", text: "Download free exam notes notes and sample syllabus papers", links: [10] },
+  { id: 235, url: "thali-time-214.in", text: "Best street food in Pune - biryani and chai are a must try", links: [6,135,915,1015] },
+  { id: 236, url: "byte-sized-215.dev", text: "How to fix common loop class errors in your project", links: [2,12,966] },
+  { id: 237, url: "budget-travel-216.com", text: "Weekend bag idea - head to destination and enjoy beach", links: [15,607] },
+  { id: 238, url: "bass-notes-217.in", text: "rhythm history - how playlist shaped modern artist", links: [11,14,615,770] },
+  { id: 239, url: "lean-gains-218.fit", text: "Quick strength tips - sleep in 15 minutes and better diet", links: [3,8,789,829] },
+  { id: 240, url: "product-launch-in-219.com", text: "Budget laptop picks - best review under 10k for tech", links: [18] },
+  { id: 241, url: "pizza-lover-220.com", text: "Weekend guide to crust - topping lovers unite for calzone night", links: [11,711,791,983] },
+  { id: 242, url: "century-club-221.net", text: "Top cricket moments of the season - boundary and run shine", links: [5] },
+  { id: 243, url: "cinema-buff-222.com", text: "Behind the scenes of the biggest movie - review and sequel stories", links: [3,413] },
+  { id: 244, url: "pass-with-ease-223.in", text: "Download free exam answer notes and sample question papers", links: [324,617,864,1014] },
+  { id: 245, url: "thali-time-224.net", text: "Healthy chai ideas - swap biryani for sweet daily", links: [644] },
+  { id: 246, url: "byte-sized-225.com", text: "Top variable tips - write cleaner git and faster object", links: [784,976] },
+  { id: 247, url: "budget-travel-226.in", text: "Weekend beach idea - head to bag and enjoy guide", links: [4,207,287,597] },
+  { id: 248, url: "bass-notes-227.fm", text: "Top lyrics albums this month - artist and tune are fire", links: [298,998] },
+  { id: 249, url: "lean-gains-228.com", text: "30-day workout plan - diet every morning and strength at night", links: [8,159,869] },
+  { id: 250, url: "product-launch-in-229.in", text: "Best phone review of 2024 - laptop tested and reviewed", links: [10,50,334] },
+  { id: 251, url: "pizza-lover-230.net", text: "How to make crust at home with fresh margherita and homemade bake", links: [256,561] },
+  { id: 252, url: "century-club-231.com", text: "Fantasy cricket tips - pick your run and batting team", links: [952] },
+  { id: 253, url: "cinema-buff-232.in", text: "Why this movie is a must-watch - sequel and star explained", links: [123,903] },
+  { id: 254, url: "pass-with-ease-233.org", text: "Last minute exam tips - focus on answer and revise score", links: [11,294] },
+  { id: 255, url: "thali-time-234.com", text: "Healthy street ideas - swap sweet for food daily", links: [2,535] },
+  { id: 256, url: "byte-sized-235.io", text: "Top error tips - write cleaner git and faster array", links: [18] },
+  { id: 257, url: "budget-travel-236.travel", text: "Best trip spots near Pune - route and explore on a budget", links: [70,687,937] },
+  { id: 258, url: "bass-notes-237.com", text: "Best tune for studying - melody playlists and concert beats", links: [178,268,993] },
+  { id: 259, url: "lean-gains-238.in", text: "30-day cardio plan - habit every morning and fitness at night", links: [2,763] },
+  { id: 260, url: "product-launch-in-239.tech", text: "Top feature update apps you need right now for device", links: [780,990] },
+  { id: 261, url: "pizza-lover-240.com", text: "cheese secrets revealed - margherita technique and yum tips", links: [131] },
+  { id: 262, url: "century-club-241.in", text: "Top cricket moments of the season - bowling and cricket shine", links: [972] },
+  { id: 263, url: "cinema-buff-242.co", text: "Review: new movie out this Friday - film gives a stunning blockbuster", links: [7,560,953] },
+  { id: 264, url: "pass-with-ease-243.com", text: "Last minute exam tips - focus on question and revise college", links: [44,340,764] },
+  { id: 265, url: "thali-time-244.in", text: "vada tour of the city - sweet stalls and meal corners", links: [15] },
+  { id: 266, url: "byte-sized-245.dev", text: "How to fix common loop array errors in your hack", links: [5,206,1016] },
+  { id: 267, url: "budget-travel-246.com", text: "Best mountain spots near Pune - guide and city on a budget", links: [427,767,847] },
+  { id: 268, url: "bass-notes-247.in", text: "How to play guitar on lyrics - beginner track lessons", links: [3,11,635] },
+  { id: 269, url: "lean-gains-248.fit", text: "Best weight cardio for beginners - start your sleep journey", links: [5,18,289,819] },
+  { id: 270, url: "product-launch-in-249.com", text: "How battery is changing feature - laptop trends to watch", links: [1,260,540] },
+  { id: 271, url: "pizza-lover-250.net", text: "Weekend guide to yum - margherita lovers unite for crust night", links: [13,741,861] },
+  { id: 272, url: "century-club-251.net", text: "Fantasy cricket tips - pick your Test and bowling team", links: [20] },
+  { id: 273, url: "cinema-buff-252.com", text: "Review: new movie out this Friday - director gives a stunning actor", links: [713] },
+  { id: 274, url: "pass-with-ease-253.in", text: "How to score full marks in exam - question strategy and score hacks", links: [484,512,734] },
+  { id: 275, url: "thali-time-254.net", text: "Healthy taste ideas - swap cook for curry daily", links: [1,215,395,565] },
+  { id: 276, url: "byte-sized-255.com", text: "algorithm interview questions - array concepts and class problems", links: [1,256,316,606] },
+  { id: 277, url: "budget-travel-256.in", text: "Best place spots near Pune - route and bag on a budget", links: [127,137,697] },
+  { id: 278, url: "bass-notes-257.fm", text: "Best beat for studying - album playlists and music beats", links: [6,10,941] },
+  { id: 279, url: "lean-gains-258.com", text: "Quick gym tips - habit in 15 minutes and better sleep", links: [15] },
+  { id: 280, url: "product-launch-in-259.in", text: "phone news: update launches new startup with exciting features", links: [2,480] },
+  { id: 281, url: "pizza-lover-260.com", text: "yum secrets revealed - bake technique and pizza tips", links: [2,601,982] },
+  { id: 282, url: "century-club-261.com", text: "Fantasy cricket tips - pick your ODI and bowling team", links: [32,252,892] },
+  { id: 283, url: "cinema-buff-262.in", text: "Why this movie is a must-watch - film and movie explained", links: [6,812] },
+  { id: 284, url: "pass-with-ease-263.org", text: "Download free exam practise notes and sample exam papers", links: [16,94,244,755] },
+  { id: 285, url: "thali-time-264.com", text: "Best street food in Pune - recipe and sweet are a must try", links: [1,2,9] },
+  { id: 286, url: "byte-sized-265.io", text: "Learn variable from scratch - hack and project for beginners", links: [486,629,716,756] },
+  { id: 287, url: "budget-travel-266.travel", text: "Weekend route idea - head to train and enjoy trip", links: [837,840,977] },
+  { id: 288, url: "bass-notes-267.com", text: "Top lyrics albums this month - melody and tune are fire", links: [102] },
+  { id: 289, url: "lean-gains-268.in", text: "30-day habit plan - gym every morning and protein at night", links: [935] },
+  { id: 290, url: "product-launch-in-269.tech", text: "Best feature app of 2024 - AI tested and reviewed", links: [18] },
+  { id: 291, url: "pizza-lover-270.net", text: "Best margherita in the city - try our mozzarella and pepperoni special", links: [15,293,489] },
+  { id: 292, url: "century-club-271.in", text: "Fantasy cricket tips - pick your bowling and run team", links: [9] },
+  { id: 293, url: "cinema-buff-272.co", text: "Behind the scenes of the biggest movie - director and trailer stories", links: [2,54,973] },
+  { id: 294, url: "pass-with-ease-273.com", text: "Download free exam marks notes and sample practise papers", links: [13,572,974] },
+  { id: 295, url: "thali-time-274.in", text: "spice tour of the city - cook stalls and meal corners", links: [216,755] },
+  { id: 296, url: "byte-sized-275.dev", text: "How to fix common object array errors in your error", links: [19,36,673] },
+  { id: 297, url: "budget-travel-276.com", text: "Budget explore hacks - save money on visit and trip", links: [307] },
+  { id: 298, url: "bass-notes-277.in", text: "Top rhythm albums this month - band and song are fire", links: [3,7,458,918] },
+  { id: 299, url: "lean-gains-278.fit", text: "Home health routine - no equipment yoga and strength guide", links: [877] },
+  { id: 300, url: "product-launch-in-279.com", text: "review news: camera launches new gadget with exciting features", links: [7,12,119,830] },
+  { id: 301, url: "pizza-lover-280.com", text: "How to make slice at home with fresh mozzarella and homemade pizza", links: [93,471,561] },
+  { id: 302, url: "century-club-281.net", text: "Cricket coaching guide - master fielding and match", links: [5,10,322] },
+  { id: 303, url: "cinema-buff-282.com", text: "Review: new movie out this Friday - review gives a stunning sequel", links: [12,253,283,531] },
+  { id: 304, url: "pass-with-ease-283.in", text: "How to score full marks in exam - exam strategy and timetable hacks", links: [11,15,19] },
+  { id: 305, url: "thali-time-284.net", text: "Best street meal in Pune - food and biryani are a must try", links: [315,1015] },
+  { id: 306, url: "byte-sized-285.com", text: "Top algorithm tips - write cleaner hack and faster variable", links: [3,18,36] },
+  { id: 307, url: "budget-travel-286.in", text: "Complete visit guide to hotel - explore tips you need to know", links: [137,517,546] },
+  { id: 308, url: "bass-notes-287.fm", text: "beat history - how concert shaped modern guitar", links: [10,16,368,580] },
+  { id: 309, url: "lean-gains-288.com", text: "Quick exercise tips - cardio in 15 minutes and better diet", links: [682,909,919] },
+  { id: 310, url: "product-launch-in-289.in", text: "Top tech laptop apps you need right now for battery", links: [840] },
+  { id: 311, url: "pizza-lover-290.net", text: "dough secrets revealed - sauce technique and oven tips", links: [8,17,18,461] },
+  { id: 312, url: "century-club-291.com", text: "Top cricket moments of the season - Test and century shine", links: [8,10,242,462] },
+  { id: 313, url: "cinema-buff-292.in", text: "Review: new movie out this Friday - movie gives a stunning dialogue", links: [70,73,309,683] },
+  { id: 314, url: "pass-with-ease-293.org", text: "Last minute exam tips - focus on study and revise notes", links: [8,133,774] },
+  { id: 315, url: "thali-time-294.com", text: "Easy restaurant recipe for beginners - curry and vada in 20 minutes", links: [6,12,255,785] },
+  { id: 316, url: "byte-sized-295.io", text: "Build a class project using hack and coding in one weekend", links: [20] },
+  { id: 317, url: "budget-travel-296.travel", text: "Best train spots near Pune - explore and mountain on a budget", links: [547] },
+  { id: 318, url: "bass-notes-297.com", text: "New lyrics release - concert drops surprise band", links: [16,283,586,688] },
+  { id: 319, url: "lean-gains-298.in", text: "Quick strength tips - health in 15 minutes and better yoga", links: [7,773,999] },
+  { id: 320, url: "product-launch-in-299.tech", text: "Best software startup of 2024 - AI tested and reviewed", links: [10,16,70,620] },
+  { id: 321, url: "pizza-lover-300.com", text: "pizza secrets revealed - bake technique and dough tips", links: [2,10,511,781] },
+  { id: 322, url: "century-club-301.in", text: "Top cricket moments of the season - cricket and IPL shine", links: [4,214] },
+  { id: 323, url: "cinema-buff-302.co", text: "Why this movie is a must-watch - movie and review explained", links: [17,443,891,944] },
+  { id: 324, url: "pass-with-ease-303.com", text: "Download free exam score notes and sample exam papers", links: [4,9,666,824] },
+  { id: 325, url: "thali-time-304.in", text: "Easy snack recipe for beginners - restaurant and spice in 20 minutes", links: [6,7,772,958] },
+  { id: 326, url: "byte-sized-305.dev", text: "How to fix common debug algorithm errors in your hack", links: [9,14,106] },
+  { id: 327, url: "budget-travel-306.com", text: "Budget mountain hacks - save money on train and bag", links: [377] },
+  { id: 328, url: "bass-notes-307.in", text: "New rhythm release - tune drops surprise album", links: [9,678] },
+  { id: 329, url: "lean-gains-308.fit", text: "30-day yoga plan - run every morning and gym at night", links: [4,99,789,797] },
+  { id: 330, url: "product-launch-in-309.com", text: "Best device screen of 2024 - update tested and reviewed", links: [524,996] },
+  { id: 331, url: "pizza-lover-310.net", text: "Review of calzone places - yum was amazing and mozzarella was perfect", links: [4,61,121,971] },
+  { id: 332, url: "century-club-311.net", text: "Cricket match review - IPL and run highlights from today", links: [192,200,272,852] },
+  { id: 333, url: "cinema-buff-312.com", text: "Behind the scenes of the biggest movie - director and film stories", links: [18,43,547] },
+  { id: 334, url: "pass-with-ease-313.in", text: "Common exam mistakes - avoid these study and exam errors", links: [10,304,583,614] },
+  { id: 335, url: "thali-time-314.net", text: "Easy food recipe for beginners - spice and sweet in 20 minutes", links: [3,16] },
+  { id: 336, url: "byte-sized-315.com", text: "Learn loop from scratch - debug and array for beginners", links: [9,17,364] },
+  { id: 337, url: "budget-travel-316.in", text: "Weekend destination idea - head to explore and enjoy place", links: [5] },
+  { id: 338, url: "bass-notes-317.fm", text: "Best tune for studying - concert playlists and melody beats", links: [598,748] },
+  { id: 339, url: "lean-gains-318.com", text: "How exercise changed my life - workout habit and weight mindset", links: [139,479] },
+  { id: 340, url: "product-launch-in-319.in", text: "Best software AI of 2024 - feature tested and reviewed", links: [620] },
+  { id: 341, url: "pizza-lover-320.com", text: "pepperoni secrets revealed - bake technique and crust tips", links: [13,241,321,479] },
+  { id: 342, url: "century-club-321.com", text: "Top cricket moments of the season - pitch and bowling shine", links: [372,515,522,572] },
+  { id: 343, url: "cinema-buff-322.in", text: "Behind the scenes of the biggest movie - cinema and trailer stories", links: [2,14,183,605] },
+  { id: 344, url: "pass-with-ease-323.org", text: "Common exam mistakes - avoid these study and practise errors", links: [874] },
+  { id: 345, url: "thali-time-324.com", text: "Best street vada in Pune - biryani and spice are a must try", links: [481] },
+  { id: 346, url: "byte-sized-325.io", text: "How to fix common coding debug errors in your python", links: [119] },
+  { id: 347, url: "budget-travel-326.travel", text: "Best bag spots near Pune - explore and beach on a budget", links: [1,18] },
+  { id: 348, url: "bass-notes-327.com", text: "How to play tune on music - beginner guitar lessons", links: [755] },
+  { id: 349, url: "lean-gains-328.in", text: "Best stretch run for beginners - start your cardio journey", links: [16,189,930] },
+  { id: 350, url: "product-launch-in-329.tech", text: "Budget startup picks - best gadget under 10k for screen", links: [12,90,670,750] },
+  { id: 351, url: "pizza-lover-330.net", text: "Weekend guide to dough - sauce lovers unite for calzone night", links: [4] },
+  { id: 352, url: "century-club-331.in", text: "How to improve your cricket Test with simple fielding drills", links: [11,142,212,962] },
+  { id: 353, url: "cinema-buff-332.co", text: "Behind the scenes of the biggest movie - script and dialogue stories", links: [5,333,487] },
+  { id: 354, url: "pass-with-ease-333.com", text: "Download free exam revision notes and sample practise papers", links: [2,357,498,534] },
+  { id: 355, url: "thali-time-334.in", text: "Healthy dosa ideas - swap cook for curry daily", links: [2,464,846,925] },
+  { id: 356, url: "byte-sized-335.dev", text: "How to fix common coding build errors in your project", links: [2,12,166] },
+  { id: 357, url: "budget-travel-336.com", text: "Hidden beach gems - route and city off the beaten path", links: [8,767] },
+  { id: 358, url: "bass-notes-337.in", text: "Top playlist albums this month - album and concert are fire", links: [508,608] },
+  { id: 359, url: "lean-gains-338.fit", text: "How weight changed my life - exercise habit and yoga mindset", links: [6] },
+  { id: 360, url: "product-launch-in-339.com", text: "Top laptop camera apps you need right now for startup", links: [790] },
+  { id: 361, url: "pizza-lover-340.com", text: "Weekend guide to yum - margherita lovers unite for pepperoni night", links: [15,611] },
+  { id: 362, url: "century-club-341.net", text: "Top cricket moments of the season - IPL and wicket shine", links: [3] },
+  { id: 363, url: "cinema-buff-342.com", text: "Review: new movie out this Friday - scene gives a stunning dialogue", links: [13,123] },
+  { id: 364, url: "pass-with-ease-343.in", text: "Last minute exam tips - focus on study and revise college", links: [204,720,1014] },
+  { id: 365, url: "thali-time-344.net", text: "Healthy sweet ideas - swap recipe for food daily", links: [13,325] },
+  { id: 366, url: "byte-sized-345.com", text: "How to fix common project class errors in your git", links: [5,846] },
+  { id: 367, url: "budget-travel-346.in", text: "Best travel spots near Pune - explore and hotel on a budget", links: [6,10,477] },
+  { id: 368, url: "bass-notes-347.fm", text: "guitar history - how melody shaped modern lyrics", links: [7,378,543] },
+  { id: 369, url: "lean-gains-348.com", text: "How stretch changed my life - workout habit and protein mindset", links: [599] },
+  { id: 370, url: "product-launch-in-349.in", text: "Top update device apps you need right now for AI", links: [8,581] },
+  { id: 371, url: "pizza-lover-350.net", text: "How to make slice at home with fresh cheese and homemade mozzarella", links: [751,793] },
+  { id: 372, url: "century-club-351.com", text: "Top cricket moments of the season - wicket and IPL shine", links: [8,72,627,692] },
+  { id: 373, url: "cinema-buff-352.in", text: "Review: new movie out this Friday - director gives a stunning star", links: [11,53,643] },
+  { id: 374, url: "pass-with-ease-353.org", text: "Common exam mistakes - avoid these study and answer errors", links: [15] },
+  { id: 375, url: "thali-time-354.com", text: "Easy sweet recipe for beginners - biryani and chai in 20 minutes", links: [17] },
+  { id: 376, url: "byte-sized-355.io", text: "Build a variable project using array and hack in one weekend", links: [14,19,186,256] },
+  { id: 377, url: "budget-travel-356.travel", text: "Best mountain spots near Pune - beach and city on a budget", links: [97,577] },
+  { id: 378, url: "bass-notes-357.com", text: "New lyrics release - album drops surprise song", links: [8,15,567,668] },
+  { id: 379, url: "lean-gains-358.in", text: "30-day stretch plan - workout every morning and yoga at night", links: [18,218,599] },
+  { id: 380, url: "product-launch-in-359.tech", text: "Best battery update of 2024 - app tested and reviewed", links: [6,8,620,929] },
+  { id: 381, url: "pizza-lover-360.com", text: "Review of pepperoni places - bake was amazing and mozzarella was perfect", links: [8,261] },
+  { id: 382, url: "century-club-361.in", text: "Fantasy cricket tips - pick your century and boundary team", links: [16,242,702,942] },
+  { id: 383, url: "cinema-buff-362.co", text: "Movie news: trailer signs for exciting new sequel project", links: [68,193,993] },
+  { id: 384, url: "pass-with-ease-363.com", text: "Download free exam score notes and sample revision papers", links: [17,854] },
+  { id: 385, url: "thali-time-364.in", text: "spice tour of the city - restaurant stalls and vada corners", links: [18,945,995] },
+  { id: 386, url: "byte-sized-365.dev", text: "How to fix common array debug errors in your class", links: [15,266,436,466] },
+  { id: 387, url: "budget-travel-366.com", text: "Weekend visit idea - head to train and enjoy bag", links: [2,5,396,1007] },
+  { id: 388, url: "bass-notes-367.in", text: "Top lyrics albums this month - singer and concert are fire", links: [158,738,898] },
+  { id: 389, url: "lean-gains-368.fit", text: "Quick fitness tips - yoga in 15 minutes and better health", links: [3,13,189,229] },
+  { id: 390, url: "product-launch-in-369.com", text: "Top phone tech apps you need right now for app", links: [18,19,65,710] },
+  { id: 391, url: "pizza-lover-370.net", text: "Weekend guide to cheese - topping lovers unite for pepperoni night", links: [2,4,871,1012] },
+  { id: 392, url: "century-club-371.net", text: "Top cricket moments of the season - wicket and ODI shine", links: [2,552,811] },
+  { id: 393, url: "cinema-buff-372.com", text: "Review: new movie out this Friday - script gives a stunning actor", links: [8,16,623,653] },
+  { id: 394, url: "pass-with-ease-373.in", text: "Last minute exam tips - focus on syllabus and revise score", links: [18,484,743,894] },
+  { id: 395, url: "thali-time-374.net", text: "Easy restaurant recipe for beginners - cook and meal in 20 minutes", links: [7,130] },
+  { id: 396, url: "byte-sized-375.com", text: "debug interview questions - class concepts and variable problems", links: [1,13,176,316] },
+  { id: 397, url: "budget-travel-376.in", text: "Budget hotel hacks - save money on guide and beach", links: [11,399,717,757] },
+  { id: 398, url: "bass-notes-377.fm", text: "singer history - how tune shaped modern music", links: [176,178] },
+  { id: 399, url: "lean-gains-378.com", text: "Home yoga routine - no equipment gym and health guide", links: [569] },
+  { id: 400, url: "product-launch-in-379.in", text: "Best battery startup of 2024 - gadget tested and reviewed", links: [18,597] },
+  { id: 401, url: "pizza-lover-380.com", text: "Review of dough places - pepperoni was amazing and oven was perfect", links: [596,715] },
+  { id: 402, url: "century-club-381.com", text: "Fantasy cricket tips - pick your Test and batting team", links: [3,11,16,742] },
+  { id: 403, url: "cinema-buff-382.in", text: "Movie news: script signs for exciting new review project", links: [6,13,63,517] },
+  { id: 404, url: "pass-with-ease-383.org", text: "How to score full marks in exam - test strategy and exam hacks", links: [204] },
+  { id: 405, url: "thali-time-384.com", text: "Weekend restaurant fest - cook specials and free snack samples", links: [13,675] },
+  { id: 406, url: "byte-sized-385.io", text: "Learn algorithm from scratch - error and array for beginners", links: [14] },
+  { id: 407, url: "budget-travel-386.travel", text: "Best route spots near Pune - place and guide on a budget", links: [162,827] },
+  { id: 408, url: "bass-notes-387.com", text: "Top band albums this month - singer and melody are fire", links: [16] },
+  { id: 409, url: "lean-gains-388.in", text: "Home sleep routine - no equipment health and protein guide", links: [959] },
+  { id: 410, url: "product-launch-in-389.tech", text: "Best screen device of 2024 - AI tested and reviewed", links: [3,14,320,980] },
+  { id: 411, url: "pizza-lover-390.net", text: "Best dough in the city - try our mozzarella and slice special", links: [7,231,871,878] },
+  { id: 412, url: "century-club-391.in", text: "Cricket coaching guide - master run and IPL", links: [11,912] },
+  { id: 413, url: "cinema-buff-392.co", text: "Review: new movie out this Friday - review gives a stunning script", links: [19,183] },
+  { id: 414, url: "pass-with-ease-393.com", text: "Last minute exam tips - focus on college and revise question", links: [10,385,664] },
+  { id: 415, url: "thali-time-394.in", text: "Best street chai in Pune - meal and taste are a must try", links: [13,965] },
+  { id: 416, url: "byte-sized-395.dev", text: "Build a hack project using debug and build in one weekend", links: [86,186,446,996] },
+  { id: 417, url: "budget-travel-396.com", text: "Complete train guide to destination - city tips you need to know", links: [87,637] },
+  { id: 418, url: "bass-notes-397.in", text: "New melody release - tune drops surprise track", links: [4] },
+  { id: 419, url: "lean-gains-398.fit", text: "Quick yoga tips - diet in 15 minutes and better exercise", links: [1,6,13,109] },
+  { id: 420, url: "product-launch-in-399.com", text: "Best review startup of 2024 - screen tested and reviewed", links: [9,190,877] },
+  { id: 421, url: "pizza-lover-400.com", text: "How to make dough at home with fresh pizza and homemade slice", links: [17,591,651] },
+  { id: 422, url: "century-club-401.net", text: "Fantasy cricket tips - pick your century and fielding team", links: [13,342,512,790] },
+  { id: 423, url: "cinema-buff-402.com", text: "Why this movie is a must-watch - blockbuster and star explained", links: [8,583] },
+  { id: 424, url: "pass-with-ease-403.in", text: "How to score full marks in exam - question strategy and practise hacks", links: [6,514,622] },
+  { id: 425, url: "thali-time-404.net", text: "Easy meal recipe for beginners - chai and vada in 20 minutes", links: [18,35,645,785] },
+  { id: 426, url: "byte-sized-405.com", text: "Build a project project using array and class in one weekend", links: [3,14,982] },
+  { id: 427, url: "budget-travel-406.in", text: "Hidden destination gems - explore and guide off the beaten path", links: [17] },
+  { id: 428, url: "bass-notes-407.fm", text: "How to play band on melody - beginner guitar lessons", links: [2,14] },
+  { id: 429, url: "lean-gains-408.com", text: "30-day weight plan - strength every morning and cardio at night", links: [16,20,27,721] },
+  { id: 430, url: "product-launch-in-409.in", text: "Best software startup of 2024 - phone tested and reviewed", links: [180] },
+  { id: 431, url: "pizza-lover-410.net", text: "How to make topping at home with fresh sauce and homemade margherita", links: [13,261,481,867] },
+  { id: 432, url: "century-club-411.com", text: "How to improve your cricket century with simple ODI drills", links: [1,162,590,972] },
+  { id: 433, url: "cinema-buff-412.in", text: "Behind the scenes of the biggest movie - cinema and film stories", links: [823,955] },
+  { id: 434, url: "pass-with-ease-413.org", text: "Stress-free exam prep - exam routine and score schedule", links: [10,817] },
+  { id: 435, url: "thali-time-414.com", text: "meal tour of the city - spice stalls and restaurant corners", links: [2,25,255,335] },
+  { id: 436, url: "byte-sized-415.io", text: "Learn git from scratch - class and project for beginners", links: [8,986] },
+  { id: 437, url: "budget-travel-416.travel", text: "Best trip spots near Pune - mountain and beach on a budget", links: [5,407,646] },
+  { id: 438, url: "bass-notes-417.com", text: "New guitar release - track drops surprise melody", links: [928] },
+  { id: 439, url: "lean-gains-418.in", text: "How cardio changed my life - gym habit and run mindset", links: [15,929] },
+  { id: 440, url: "product-launch-in-419.tech", text: "Best review phone of 2024 - laptop tested and reviewed", links: [7] },
+  { id: 441, url: "pizza-lover-420.com", text: "Weekend guide to pepperoni - dough lovers unite for sauce night", links: [6] },
+  { id: 442, url: "century-club-421.in", text: "Fantasy cricket tips - pick your IPL and ODI team", links: [12,212,582,962] },
+  { id: 443, url: "cinema-buff-422.co", text: "Top 10 movie of the year - star and trailer made the list", links: [5,17] },
+  { id: 444, url: "pass-with-ease-423.com", text: "Last minute exam tips - focus on score and revise notes", links: [724] },
+  { id: 445, url: "thali-time-424.in", text: "Best street sweet in Pune - food and recipe are a must try", links: [8,188,565] },
+  { id: 446, url: "byte-sized-425.dev", text: "Build a python project using object and loop in one weekend", links: [246] },
+  { id: 447, url: "budget-travel-426.com", text: "Best bag spots near Pune - place and guide on a budget", links: [3,4] },
+  { id: 448, url: "bass-notes-427.in", text: "melody history - how band shaped modern lyrics", links: [16,668] },
+  { id: 449, url: "lean-gains-428.fit", text: "Quick exercise tips - yoga in 15 minutes and better workout", links: [499] },
+  { id: 450, url: "product-launch-in-429.com", text: "Budget gadget picks - best startup under 10k for feature", links: [1,130] },
+  { id: 451, url: "pizza-lover-430.net", text: "Review of crust places - topping was amazing and pizza was perfect", links: [15] },
+  { id: 452, url: "century-club-431.net", text: "Cricket coaching guide - master match and cricket", links: [11,112,912,963] },
+  { id: 453, url: "cinema-buff-432.com", text: "Review: new movie out this Friday - director gives a stunning scene", links: [103] },
+  { id: 454, url: "pass-with-ease-433.in", text: "Download free exam practise notes and sample score papers", links: [17,424] },
+  { id: 455, url: "thali-time-434.net", text: "Best street restaurant in Pune - dosa and recipe are a must try", links: [865,1015] },
+  { id: 456, url: "byte-sized-435.com", text: "object interview questions - python concepts and algorithm problems", links: [15,36,146,213] },
+  { id: 457, url: "budget-travel-436.in", text: "Weekend explore idea - head to hotel and enjoy guide", links: [12,13,657,995] },
+  { id: 458, url: "bass-notes-437.fm", text: "band history - how music shaped modern tune", links: [20,38] },
+  { id: 459, url: "lean-gains-438.com", text: "Best weight workout for beginners - start your diet journey", links: [109,279,429,469] },
+  { id: 460, url: "product-launch-in-439.in", text: "Budget screen picks - best software under 10k for tech", links: [9,19,640] },
+  { id: 461, url: "pizza-lover-440.com", text: "Review of topping places - pizza was amazing and crust was perfect", links: [6,231,401,471] },
+  { id: 462, url: "century-club-441.com", text: "Cricket match review - batting and boundary highlights from today", links: [15,162,692,748] },
+  { id: 463, url: "cinema-buff-442.in", text: "Top 10 movie of the year - director and blockbuster made the list", links: [421] },
+  { id: 464, url: "pass-with-ease-443.org", text: "Common exam mistakes - avoid these tips and notes errors", links: [3,4,122,914] },
+  { id: 465, url: "thali-time-444.com", text: "Weekend biryani fest - chai specials and free food samples", links: [20,615,735] },
+  { id: 466, url: "byte-sized-445.io", text: "Build a error project using project and variable in one weekend", links: [36,56] },
+  { id: 467, url: "budget-travel-446.travel", text: "Complete city guide to train - route tips you need to know", links: [317,676] },
+  { id: 468, url: "bass-notes-447.com", text: "Top band albums this month - melody and singer are fire", links: [58,128] },
+  { id: 469, url: "lean-gains-448.in", text: "Home workout routine - no equipment yoga and strength guide", links: [5] },
+  { id: 470, url: "product-launch-in-449.tech", text: "update news: gadget launches new phone with exciting features", links: [154,260,411,520] },
+  { id: 471, url: "pizza-lover-450.net", text: "pizza secrets revealed - slice technique and calzone tips", links: [161,569] },
+  { id: 472, url: "century-club-451.in", text: "How to improve your cricket fielding with simple batting drills", links: [412,772,1012] },
+  { id: 473, url: "cinema-buff-452.co", text: "Movie news: actor signs for exciting new movie project", links: [13,853,941] },
+  { id: 474, url: "pass-with-ease-453.com", text: "Last minute exam tips - focus on exam and revise paper", links: [624] },
+  { id: 475, url: "thali-time-454.in", text: "sweet tour of the city - meal stalls and cook corners", links: [15,457] },
+  { id: 476, url: "byte-sized-455.dev", text: "Top coding tips - write cleaner class and faster error", links: [856] },
+  { id: 477, url: "budget-travel-456.com", text: "Budget bag hacks - save money on city and trip", links: [14,157,827] },
+  { id: 478, url: "bass-notes-457.in", text: "Best song for studying - beat playlists and lyrics beats", links: [5,19,238,928] },
+  { id: 479, url: "lean-gains-458.fit", text: "Best workout gym for beginners - start your protein journey", links: [339,489,749] },
+  { id: 480, url: "product-launch-in-459.com", text: "Top device startup apps you need right now for update", links: [310,500] },
+  { id: 481, url: "pizza-lover-460.com", text: "Weekend guide to topping - dough lovers unite for pizza night", links: [3,18,171,601] },
+  { id: 482, url: "century-club-461.net", text: "Cricket coaching guide - master Test and six", links: [17,20,372] },
+  { id: 483, url: "cinema-buff-462.com", text: "Why this movie is a must-watch - film and scene explained", links: [6,7,303,913] },
+  { id: 484, url: "pass-with-ease-463.in", text: "How to score full marks in exam - notes strategy and paper hacks", links: [222] },
+  { id: 485, url: "thali-time-464.net", text: "Best street sweet in Pune - food and biryani are a must try", links: [20,536,995] },
+  { id: 486, url: "byte-sized-465.com", text: "Build a build project using class and project in one weekend", links: [166,182,696,846] },
+  { id: 487, url: "budget-travel-466.in", text: "Weekend destination idea - head to city and enjoy bag", links: [247,357,447,467] },
+  { id: 488, url: "bass-notes-467.fm", text: "Top concert albums this month - band and album are fire", links: [6,398,698,748] },
+  { id: 489, url: "lean-gains-468.com", text: "30-day diet plan - health every morning and strength at night", links: [469] },
+  { id: 490, url: "product-launch-in-469.in", text: "software news: gadget launches new laptop with exciting features", links: [11,250,420] },
+  { id: 491, url: "pizza-lover-470.net", text: "Weekend guide to calzone - bake lovers unite for crust night", links: [14,911] },
+  { id: 492, url: "century-club-471.com", text: "How to improve your cricket match with simple pitch drills", links: [392,822] },
+  { id: 493, url: "cinema-buff-472.in", text: "Behind the scenes of the biggest movie - sequel and cinema stories", links: [2,893,973] },
+  { id: 494, url: "pass-with-ease-473.org", text: "Last minute exam tips - focus on study and revise exam", links: [13] },
+  { id: 495, url: "thali-time-474.com", text: "Healthy taste ideas - swap dosa for food daily", links: [875,985] },
+  { id: 496, url: "byte-sized-475.io", text: "How to fix common coding function errors in your array", links: [179] },
+  { id: 497, url: "budget-travel-476.travel", text: "Hidden trip gems - place and city off the beaten path", links: [457,867] },
+  { id: 498, url: "bass-notes-477.com", text: "singer history - how lyrics shaped modern track", links: [20,78,108,885] },
+  { id: 499, url: "lean-gains-478.in", text: "30-day fitness plan - sleep every morning and weight at night", links: [4] },
+  { id: 500, url: "product-launch-in-479.tech", text: "How software is changing battery - review trends to watch", links: [5,60] },
+  { id: 501, url: "pizza-lover-480.com", text: "yum secrets revealed - oven technique and slice tips", links: [14,166,591] },
+  { id: 502, url: "century-club-481.in", text: "Top cricket moments of the season - run and captain shine", links: [18,19,112,222] },
+  { id: 503, url: "cinema-buff-482.co", text: "Movie news: scene signs for exciting new director project", links: [2] },
+  { id: 504, url: "pass-with-ease-483.com", text: "How to score full marks in exam - score strategy and timetable hacks", links: [674] },
+  { id: 505, url: "thali-time-484.in", text: "Healthy vada ideas - swap snack for curry daily", links: [165,284] },
+  { id: 506, url: "byte-sized-485.dev", text: "Learn python from scratch - coding and algorithm for beginners", links: [8,256,386,426] },
+  { id: 507, url: "budget-travel-486.com", text: "Weekend bus idea - head to guide and enjoy mountain", links: [2,4,707] },
+  { id: 508, url: "bass-notes-487.in", text: "Top lyrics albums this month - tune and melody are fire", links: [1,15] },
+  { id: 509, url: "lean-gains-488.fit", text: "How fitness changed my life - sleep habit and diet mindset", links: [56,259,309,519] },
+  { id: 510, url: "product-launch-in-489.com", text: "screen news: device launches new battery with exciting features", links: [390] },
+  { id: 511, url: "pizza-lover-490.net", text: "Review of pepperoni places - bake was amazing and pizza was perfect", links: [1,341,668] },
+  { id: 512, url: "century-club-491.net", text: "Cricket coaching guide - master IPL and captain", links: [315,372] },
+  { id: 513, url: "cinema-buff-492.com", text: "Review: new movie out this Friday - actor gives a stunning blockbuster", links: [2,19,313,773] },
+  { id: 514, url: "pass-with-ease-493.in", text: "How to score full marks in exam - marks strategy and paper hacks", links: [12,402,485] },
+  { id: 515, url: "thali-time-494.net", text: "Best street biryani in Pune - cook and chai are a must try", links: [454,465,945] },
+  { id: 516, url: "byte-sized-495.com", text: "class interview questions - array concepts and loop problems", links: [152,872,1016] },
+  { id: 517, url: "budget-travel-496.in", text: "Hidden visit gems - explore and guide off the beaten path", links: [5,337,409,757] },
+  { id: 518, url: "bass-notes-497.fm", text: "How to play song on playlist - beginner beat lessons", links: [3,6,17,623] },
+  { id: 519, url: "lean-gains-498.com", text: "Home cardio routine - no equipment habit and sleep guide", links: [882] },
+  { id: 520, url: "product-launch-in-499.in", text: "AI news: startup launches new app with exciting features", links: [460,679,1020] },
+  { id: 521, url: "pizza-lover-500.com", text: "Weekend guide to slice - dough lovers unite for pepperoni night", links: [15,16,381] },
+  { id: 522, url: "century-club-501.com", text: "Fantasy cricket tips - pick your pitch and ODI team", links: [14] },
+  { id: 523, url: "cinema-buff-502.in", text: "Behind the scenes of the biggest movie - dialogue and film stories", links: [3,825] },
+  { id: 524, url: "pass-with-ease-503.org", text: "Common exam mistakes - avoid these revision and question errors", links: [10,16] },
+  { id: 525, url: "thali-time-504.com", text: "Best street snack in Pune - vada and spice are a must try", links: [353,465,835,845] },
+  { id: 526, url: "byte-sized-505.io", text: "Build a variable project using array and loop in one weekend", links: [426,571] },
+  { id: 527, url: "budget-travel-506.travel", text: "Hidden guide gems - bus and hotel off the beaten path", links: [537,547,597] },
+  { id: 528, url: "bass-notes-507.com", text: "singer history - how lyrics shaped modern album", links: [18] },
+  { id: 529, url: "lean-gains-508.in", text: "Home diet routine - no equipment run and stretch guide", links: [159,709] },
+  { id: 530, url: "product-launch-in-509.tech", text: "How battery is changing device - laptop trends to watch", links: [14] },
+  { id: 531, url: "pizza-lover-510.net", text: "How to make crust at home with fresh dough and homemade mozzarella", links: [10,391,501,571] },
+  { id: 532, url: "century-club-511.in", text: "Fantasy cricket tips - pick your cricket and six team", links: [129,492] },
+  { id: 533, url: "cinema-buff-512.co", text: "Review: new movie out this Friday - dialogue gives a stunning cinema", links: [1,9,14,806] },
+  { id: 534, url: "pass-with-ease-513.com", text: "Common exam mistakes - avoid these college and question errors", links: [6] },
+  { id: 535, url: "thali-time-514.in", text: "Healthy food ideas - swap spice for recipe daily", links: [5,20,351,435] },
+  { id: 536, url: "byte-sized-515.dev", text: "How to fix common class hack errors in your array", links: [7] },
+  { id: 537, url: "budget-travel-516.com", text: "Hidden destination gems - visit and bus off the beaten path", links: [659] },
+  { id: 538, url: "bass-notes-517.in", text: "song history - how album shaped modern melody", links: [16,378,808,912] },
+  { id: 539, url: "lean-gains-518.fit", text: "Best stretch protein for beginners - start your exercise journey", links: [4,679,889,901] },
+  { id: 540, url: "product-launch-in-519.com", text: "How battery is changing software - review trends to watch", links: [1,12,350,436] },
+  { id: 541, url: "pizza-lover-520.com", text: "Best cheese in the city - try our oven and sauce special", links: [9,757] },
+  { id: 542, url: "century-club-521.net", text: "Fantasy cricket tips - pick your captain and cricket team", links: [4,12,242,718] },
+  { id: 543, url: "cinema-buff-522.com", text: "Behind the scenes of the biggest movie - film and award stories", links: [12,973] },
+  { id: 544, url: "pass-with-ease-523.in", text: "Stress-free exam prep - exam routine and score schedule", links: [9,10] },
+  { id: 545, url: "thali-time-524.net", text: "Weekend dosa fest - food specials and free chai samples", links: [10,125] },
+  { id: 546, url: "byte-sized-525.com", text: "How to fix common algorithm function errors in your error", links: [356,476,486,776] },
+  { id: 547, url: "budget-travel-526.in", text: "Hidden mountain gems - bag and route off the beaten path", links: [2,297,609] },
+  { id: 548, url: "bass-notes-527.fm", text: "Best tune for studying - song playlists and band beats", links: [205,228,568] },
+  { id: 549, url: "lean-gains-528.com", text: "Home weight routine - no equipment health and cardio guide", links: [18,326,539] },
+  { id: 550, url: "product-launch-in-529.in", text: "How update is changing AI - screen trends to watch", links: [210] },
+  { id: 551, url: "pizza-lover-530.net", text: "How to make mozzarella at home with fresh slice and homemade sauce", links: [641] },
+  { id: 552, url: "century-club-531.com", text: "Fantasy cricket tips - pick your six and pitch team", links: [20,782,972] },
+  { id: 553, url: "cinema-buff-532.in", text: "Top 10 movie of the year - scene and trailer made the list", links: [13,213,573] },
+  { id: 554, url: "pass-with-ease-533.org", text: "Last minute exam tips - focus on notes and revise paper", links: [14,864,884,904] },
+  { id: 555, url: "thali-time-534.com", text: "Healthy curry ideas - swap chai for snack daily", links: [76] },
+  { id: 556, url: "byte-sized-535.io", text: "Build a git project using function and project in one weekend", links: [61] },
+  { id: 557, url: "budget-travel-536.travel", text: "Budget train hacks - save money on hotel and bus", links: [3,64,337,967] },
+  { id: 558, url: "bass-notes-537.com", text: "How to play tune on beat - beginner track lessons", links: [8] },
+  { id: 559, url: "lean-gains-538.in", text: "Quick diet tips - yoga in 15 minutes and better strength", links: [15,19,49] },
+  { id: 560, url: "product-launch-in-539.tech", text: "Budget battery picks - best startup under 10k for feature", links: [11,18,730,800] },
+  { id: 561, url: "pizza-lover-540.com", text: "Best mozzarella in the city - try our pepperoni and crust special", links: [19,121,281,981] },
+  { id: 562, url: "century-club-541.in", text: "How to improve your cricket six with simple pitch drills", links: [292,522,802,906] },
+  { id: 563, url: "cinema-buff-542.co", text: "Review: new movie out this Friday - blockbuster gives a stunning star", links: [663,713,1015] },
+  { id: 564, url: "pass-with-ease-543.com", text: "Stress-free exam prep - revision routine and marks schedule", links: [19] },
+  { id: 565, url: "thali-time-544.in", text: "Easy street recipe for beginners - meal and vada in 20 minutes", links: [7,10] },
+  { id: 566, url: "byte-sized-545.dev", text: "How to fix common debug array errors in your hack", links: [906] },
+  { id: 567, url: "budget-travel-546.com", text: "Weekend train idea - head to route and enjoy mountain", links: [6,157,577,1007] },
+  { id: 568, url: "bass-notes-547.in", text: "How to play melody on beat - beginner lyrics lessons", links: [189,598,918] },
+  { id: 569, url: "lean-gains-548.fit", text: "How weight changed my life - exercise habit and strength mindset", links: [52,809,989] },
+  { id: 570, url: "product-launch-in-549.com", text: "Top update app apps you need right now for feature", links: [19,452,660] },
+  { id: 571, url: "pizza-lover-550.net", text: "How to make sauce at home with fresh oven and homemade calzone", links: [97] },
+  { id: 572, url: "century-club-551.net", text: "How to improve your cricket Test with simple IPL drills", links: [237,866] },
+  { id: 573, url: "cinema-buff-552.com", text: "Movie news: film signs for exciting new award project", links: [3,16,163] },
+  { id: 574, url: "pass-with-ease-553.in", text: "Common exam mistakes - avoid these practise and syllabus errors", links: [17,364,544,994] },
+  { id: 575, url: "thali-time-554.net", text: "Best street chai in Pune - taste and street are a must try", links: [635] },
+  { id: 576, url: "byte-sized-555.com", text: "Build a project project using class and array in one weekend", links: [896] },
+  { id: 577, url: "budget-travel-556.in", text: "Complete destination guide to hotel - explore tips you need to know", links: [14,468,497] },
+  { id: 578, url: "bass-notes-557.fm", text: "How to play artist on band - beginner tune lessons", links: [19,398,508] },
+  { id: 579, url: "lean-gains-558.com", text: "Quick exercise tips - fitness in 15 minutes and better protein", links: [4,84,339,919] },
+  { id: 580, url: "product-launch-in-559.in", text: "Top screen device apps you need right now for software", links: [15,642] },
+  { id: 581, url: "pizza-lover-560.com", text: "Review of calzone places - oven was amazing and margherita was perfect", links: [9,18] },
+  { id: 582, url: "century-club-561.com", text: "Cricket match review - match and six highlights from today", links: [201,442,842] },
+  { id: 583, url: "cinema-buff-562.in", text: "Top 10 movie of the year - blockbuster and review made the list", links: [703,763] },
+  { id: 584, url: "pass-with-ease-563.org", text: "Common exam mistakes - avoid these test and syllabus errors", links: [264,944] },
+  { id: 585, url: "thali-time-564.com", text: "Easy spice recipe for beginners - taste and snack in 20 minutes", links: [4,55,526] },
+  { id: 586, url: "byte-sized-565.io", text: "Learn algorithm from scratch - class and object for beginners", links: [260] },
+  { id: 587, url: "budget-travel-566.travel", text: "Budget train hacks - save money on bag and trip", links: [3,107,487] },
+  { id: 588, url: "bass-notes-567.com", text: "How to play tune on concert - beginner melody lessons", links: [216] },
+  { id: 589, url: "lean-gains-568.in", text: "How strength changed my life - health habit and gym mindset", links: [13,14,209] },
+  { id: 590, url: "product-launch-in-569.tech", text: "Best startup camera of 2024 - software tested and reviewed", links: [5,11,200,640] },
+  { id: 591, url: "pizza-lover-570.net", text: "How to make cheese at home with fresh mozzarella and homemade crust", links: [381] },
+  { id: 592, url: "century-club-571.in", text: "Fantasy cricket tips - pick your Test and captain team", links: [2,8,32,832] },
+  { id: 593, url: "cinema-buff-572.co", text: "Why this movie is a must-watch - scene and award explained", links: [683] },
+  { id: 594, url: "pass-with-ease-573.com", text: "Last minute exam tips - focus on college and revise notes", links: [15,394] },
+  { id: 595, url: "thali-time-574.in", text: "Weekend biryani fest - chai specials and free taste samples", links: [915] },
+  { id: 596, url: "byte-sized-575.dev", text: "Top function tips - write cleaner variable and faster class", links: [9,196,258,436] },
+  { id: 597, url: "budget-travel-576.com", text: "Complete city guide to train - bag tips you need to know", links: [7,467] },
+  { id: 598, url: "bass-notes-577.in", text: "How to play band on concert - beginner beat lessons", links: [988] },
+  { id: 599, url: "lean-gains-578.fit", text: "30-day weight plan - cardio every morning and sleep at night", links: [2,579,669] },
+  { id: 600, url: "product-launch-in-579.com", text: "How feature is changing software - update trends to watch", links: [13,160,940] },
+  { id: 601, url: "pizza-lover-580.com", text: "Review of mozzarella places - calzone was amazing and oven was perfect", links: [61,691,761,981] },
+  { id: 602, url: "century-club-581.net", text: "Top cricket moments of the season - bowling and fielding shine", links: [352] },
+  { id: 603, url: "cinema-buff-582.com", text: "Review: new movie out this Friday - script gives a stunning film", links: [7,9,16,253] },
+  { id: 604, url: "pass-with-ease-583.in", text: "Common exam mistakes - avoid these college and notes errors", links: [944] },
+  { id: 605, url: "thali-time-584.net", text: "food tour of the city - street stalls and cook corners", links: [1,10] },
+  { id: 606, url: "byte-sized-585.com", text: "Build a hack project using project and loop in one weekend", links: [326,426,576] },
+  { id: 607, url: "budget-travel-586.in", text: "Weekend route idea - head to destination and enjoy city", links: [16,367] },
+  { id: 608, url: "bass-notes-587.fm", text: "Top tune albums this month - beat and singer are fire", links: [7,373,578] },
+  { id: 609, url: "lean-gains-588.com", text: "30-day cardio plan - fitness every morning and weight at night", links: [8,109,819] },
+  { id: 610, url: "product-launch-in-589.in", text: "software news: device launches new startup with exciting features", links: [14,16] },
+  { id: 611, url: "pizza-lover-590.net", text: "pizza secrets revealed - mozzarella technique and sauce tips", links: [511] },
+  { id: 612, url: "century-club-591.com", text: "Cricket coaching guide - master Test and captain", links: [18,144] },
+  { id: 613, url: "cinema-buff-592.in", text: "Movie news: blockbuster signs for exciting new award project", links: [5,103,453,925] },
+  { id: 614, url: "pass-with-ease-593.org", text: "Download free exam answer notes and sample college papers", links: [5,10,15,724] },
+  { id: 615, url: "thali-time-594.com", text: "Weekend snack fest - spice specials and free street samples", links: [10,750,905] },
+  { id: 616, url: "byte-sized-595.io", text: "Top hack tips - write cleaner class and faster error", links: [6,906] },
+  { id: 617, url: "budget-travel-596.travel", text: "Complete city guide to bag - bus tips you need to know", links: [5,497] },
+  { id: 618, url: "bass-notes-597.com", text: "Best rhythm for studying - artist playlists and melody beats", links: [2,101,745,838] },
+  { id: 619, url: "lean-gains-598.in", text: "How gym changed my life - stretch habit and habit mindset", links: [16,359,1009] },
+  { id: 620, url: "product-launch-in-599.tech", text: "Best phone software of 2024 - feature tested and reviewed", links: [17,19,980] },
+  { id: 621, url: "pizza-lover-600.com", text: "How to make dough at home with fresh slice and homemade crust", links: [15,20] },
+  { id: 622, url: "century-club-601.in", text: "Cricket coaching guide - master pitch and run", links: [87,152] },
+  { id: 623, url: "cinema-buff-602.co", text: "Why this movie is a must-watch - blockbuster and trailer explained", links: [15,323,538,593] },
+  { id: 624, url: "pass-with-ease-603.com", text: "Download free exam timetable notes and sample exam papers", links: [8,258,544] },
+  { id: 625, url: "thali-time-604.in", text: "Easy vada recipe for beginners - curry and cook in 20 minutes", links: [295,755] },
+  { id: 626, url: "byte-sized-605.dev", text: "Learn debug from scratch - build and loop for beginners", links: [331,869] },
+  { id: 627, url: "budget-travel-606.com", text: "Budget bus hacks - save money on beach and guide", links: [897] },
+  { id: 628, url: "bass-notes-607.in", text: "How to play beat on track - beginner song lessons", links: [16,816] },
+  { id: 629, url: "lean-gains-608.fit", text: "How yoga changed my life - protein habit and fitness mindset", links: [11,12,19] },
+  { id: 630, url: "product-launch-in-609.com", text: "Top feature screen apps you need right now for startup", links: [240] },
+  { id: 631, url: "pizza-lover-610.net", text: "Weekend guide to mozzarella - crust lovers unite for sauce night", links: [31] },
+  { id: 632, url: "century-club-611.net", text: "How to improve your cricket century with simple Test drills", links: [592,944] },
+  { id: 633, url: "cinema-buff-612.com", text: "Review: new movie out this Friday - script gives a stunning movie", links: [19,113,822] },
+  { id: 634, url: "pass-with-ease-613.in", text: "Stress-free exam prep - paper routine and syllabus schedule", links: [254,274] },
+  { id: 635, url: "thali-time-614.net", text: "Best street cook in Pune - taste and meal are a must try", links: [14,795] },
+  { id: 636, url: "byte-sized-615.com", text: "Build a build project using hack and coding in one weekend", links: [3,12,20,896] },
+  { id: 637, url: "budget-travel-616.in", text: "Complete beach guide to place - travel tips you need to know", links: [179,437,597] },
+  { id: 638, url: "bass-notes-617.fm", text: "How to play song on music - beginner playlist lessons", links: [6,13,236,458] },
+  { id: 639, url: "lean-gains-618.com", text: "30-day health plan - weight every morning and exercise at night", links: [1,299,329] },
+  { id: 640, url: "product-launch-in-619.in", text: "How AI is changing feature - startup trends to watch", links: [500] },
+  { id: 641, url: "pizza-lover-620.com", text: "How to make oven at home with fresh pepperoni and homemade yum", links: [20] },
+  { id: 642, url: "century-club-621.com", text: "Cricket coaching guide - master bowling and run", links: [822] },
+  { id: 643, url: "cinema-buff-622.in", text: "Movie news: script signs for exciting new movie project", links: [14,283,904] },
+  { id: 644, url: "pass-with-ease-623.org", text: "Download free exam marks notes and sample timetable papers", links: [224,434,440,784] },
+  { id: 645, url: "thali-time-624.com", text: "meal tour of the city - biryani stalls and chai corners", links: [685] },
+  { id: 646, url: "byte-sized-625.io", text: "Top class tips - write cleaner coding and faster build", links: [6,15,216,856] },
+  { id: 647, url: "budget-travel-626.travel", text: "Complete guide guide to visit - place tips you need to know", links: [517,677] },
+  { id: 648, url: "bass-notes-627.com", text: "Top lyrics albums this month - tune and song are fire", links: [1,528,718] },
+  { id: 649, url: "lean-gains-628.in", text: "How fitness changed my life - exercise habit and cardio mindset", links: [19,20,79,695] },
+  { id: 650, url: "product-launch-in-629.tech", text: "How battery is changing app - AI trends to watch", links: [6,20] },
+  { id: 651, url: "pizza-lover-630.net", text: "Best dough in the city - try our oven and bake special", links: [12,14] },
+  { id: 652, url: "century-club-631.in", text: "Cricket coaching guide - master batting and cricket", links: [20] },
+  { id: 653, url: "cinema-buff-632.co", text: "Movie news: trailer signs for exciting new actor project", links: [933] },
+  { id: 654, url: "pass-with-ease-633.com", text: "Download free exam paper notes and sample study papers", links: [224,386,604] },
+  { id: 655, url: "thali-time-634.in", text: "Weekend snack fest - meal specials and free restaurant samples", links: [195] },
+  { id: 656, url: "byte-sized-635.dev", text: "Learn error from scratch - variable and python for beginners", links: [696] },
+  { id: 657, url: "budget-travel-636.com", text: "Complete city guide to destination - explore tips you need to know", links: [267,997] },
+  { id: 658, url: "bass-notes-637.in", text: "Top artist albums this month - album and melody are fire", links: [348] },
+  { id: 659, url: "lean-gains-638.fit", text: "30-day gym plan - weight every morning and exercise at night", links: [149,453,719,999] },
+  { id: 660, url: "product-launch-in-639.com", text: "How feature is changing startup - tech trends to watch", links: [600,940,1002] },
+  { id: 661, url: "pizza-lover-640.com", text: "mozzarella secrets revealed - margherita technique and pizza tips", links: [15,352,705] },
+  { id: 662, url: "century-club-641.net", text: "How to improve your cricket ODI with simple six drills", links: [8,652,772] },
+  { id: 663, url: "cinema-buff-642.com", text: "Why this movie is a must-watch - film and trailer explained", links: [923] },
+  { id: 664, url: "pass-with-ease-643.in", text: "Stress-free exam prep - syllabus routine and college schedule", links: [2,188,774] },
+  { id: 665, url: "thali-time-644.net", text: "Weekend curry fest - food specials and free spice samples", links: [16,425] },
+  { id: 666, url: "byte-sized-645.com", text: "python interview questions - object concepts and algorithm problems", links: [2,20] },
+  { id: 667, url: "budget-travel-646.in", text: "Complete visit guide to beach - mountain tips you need to know", links: [3,117,1017] },
+  { id: 668, url: "bass-notes-647.fm", text: "Best rhythm for studying - concert playlists and guitar beats", links: [5,404,748,908] },
+  { id: 669, url: "lean-gains-648.com", text: "Home habit routine - no equipment health and run guide", links: [770,782] },
+  { id: 670, url: "product-launch-in-649.in", text: "Budget review picks - best app under 10k for gadget", links: [12,340,836] },
+  { id: 671, url: "pizza-lover-650.net", text: "Weekend guide to yum - slice lovers unite for bake night", links: [341] },
+  { id: 672, url: "century-club-651.com", text: "Cricket match review - century and ODI highlights from today", links: [102] },
+  { id: 673, url: "cinema-buff-652.in", text: "Top 10 movie of the year - director and sequel made the list", links: [43,213,733] },
+  { id: 674, url: "pass-with-ease-653.org", text: "How to score full marks in exam - marks strategy and test hacks", links: [10,24] },
+  { id: 675, url: "thali-time-654.com", text: "Easy restaurant recipe for beginners - dosa and street in 20 minutes", links: [13,435,655,705] },
+  { id: 676, url: "byte-sized-655.io", text: "Top function tips - write cleaner debug and faster hack", links: [3,626,931] },
+  { id: 677, url: "budget-travel-656.travel", text: "Budget trip hacks - save money on train and hotel", links: [6,8,17] },
+  { id: 678, url: "bass-notes-657.com", text: "Best song for studying - guitar playlists and beat beats", links: [8,10,14,378] },
+  { id: 679, url: "lean-gains-658.in", text: "30-day protein plan - run every morning and cardio at night", links: [719] },
+  { id: 680, url: "product-launch-in-659.tech", text: "app news: camera launches new tech with exciting features", links: [15,219,330,810] },
+  { id: 681, url: "pizza-lover-660.com", text: "Weekend guide to slice - yum lovers unite for margherita night", links: [17,210,471,611] },
+  { id: 682, url: "century-club-661.in", text: "Cricket coaching guide - master six and fielding", links: [15] },
+  { id: 683, url: "cinema-buff-662.co", text: "Movie news: review signs for exciting new director project", links: [460,553] },
+  { id: 684, url: "pass-with-ease-663.com", text: "Last minute exam tips - focus on paper and revise answer", links: [18,34,664] },
+  { id: 685, url: "thali-time-664.in", text: "meal tour of the city - food stalls and chai corners", links: [18] },
+  { id: 686, url: "byte-sized-665.dev", text: "How to fix common coding build errors in your function", links: [566] },
+  { id: 687, url: "budget-travel-666.com", text: "Budget guide hacks - save money on bus and beach", links: [5,780,977] },
+  { id: 688, url: "bass-notes-667.in", text: "beat history - how concert shaped modern tune", links: [158,194,208,549] },
+  { id: 689, url: "lean-gains-668.fit", text: "Best yoga cardio for beginners - start your exercise journey", links: [12] },
+  { id: 690, url: "product-launch-in-669.com", text: "Top app feature apps you need right now for AI", links: [3,23,40,220] },
+  { id: 691, url: "pizza-lover-670.net", text: "Review of sauce places - crust was amazing and pizza was perfect", links: [722] },
+  { id: 692, url: "century-club-671.net", text: "Cricket coaching guide - master match and bowling", links: [17,355,369] },
+  { id: 693, url: "cinema-buff-672.com", text: "Top 10 movie of the year - movie and film made the list", links: [153] },
+  { id: 694, url: "pass-with-ease-673.in", text: "Stress-free exam prep - syllabus routine and exam schedule", links: [64,770] },
+  { id: 695, url: "thali-time-674.net", text: "Best street sweet in Pune - chai and taste are a must try", links: [5,8,16] },
+  { id: 696, url: "byte-sized-675.com", text: "Learn array from scratch - project and class for beginners", links: [9,976] },
+  { id: 697, url: "budget-travel-676.in", text: "Best hotel spots near Pune - bus and travel on a budget", links: [11,19,617,693] },
+  { id: 698, url: "bass-notes-677.fm", text: "Top guitar albums this month - artist and music are fire", links: [14,328] },
+  { id: 699, url: "lean-gains-678.com", text: "How stretch changed my life - weight habit and health mindset", links: [3,909] },
+  { id: 700, url: "product-launch-in-679.in", text: "Top gadget screen apps you need right now for laptop", links: [110,120,730] },
+  { id: 701, url: "pizza-lover-680.com", text: "Weekend guide to mozzarella - pepperoni lovers unite for dough night", links: [241] },
+  { id: 702, url: "century-club-681.com", text: "Cricket coaching guide - master wicket and ODI", links: [3,16,232,292] },
+  { id: 703, url: "cinema-buff-682.in", text: "Review: new movie out this Friday - blockbuster gives a stunning review", links: [423,613,696] },
+  { id: 704, url: "pass-with-ease-683.org", text: "Common exam mistakes - avoid these question and revision errors", links: [20] },
+  { id: 705, url: "thali-time-684.com", text: "meal tour of the city - taste stalls and vada corners", links: [145] },
+  { id: 706, url: "byte-sized-685.io", text: "git interview questions - function concepts and python problems", links: [5,11,876,996] },
+  { id: 707, url: "budget-travel-686.travel", text: "Hidden mountain gems - guide and visit off the beaten path", links: [1] },
+  { id: 708, url: "bass-notes-687.com", text: "New guitar release - artist drops surprise music", links: [5,12,13,698] },
+  { id: 709, url: "lean-gains-688.in", text: "How cardio changed my life - run habit and weight mindset", links: [4,8,304] },
+  { id: 710, url: "product-launch-in-689.tech", text: "Best battery device of 2024 - tech tested and reviewed", links: [14,160,290,600] },
+  { id: 711, url: "pizza-lover-690.net", text: "How to make yum at home with fresh mozzarella and homemade calzone", links: [15,341] },
+  { id: 712, url: "century-club-691.in", text: "How to improve your cricket six with simple ODI drills", links: [10,462,692,804] },
+  { id: 713, url: "cinema-buff-692.co", text: "Movie news: trailer signs for exciting new director project", links: [683,953] },
+  { id: 714, url: "pass-with-ease-693.com", text: "Common exam mistakes - avoid these exam and notes errors", links: [1,454,855] },
+  { id: 715, url: "thali-time-694.in", text: "Healthy biryani ideas - swap cook for sweet daily", links: [11,18,1005] },
+  { id: 716, url: "byte-sized-695.dev", text: "Learn git from scratch - class and array for beginners", links: [4,752] },
+  { id: 717, url: "budget-travel-696.com", text: "Best explore spots near Pune - route and hotel on a budget", links: [14,877] },
+  { id: 718, url: "bass-notes-697.in", text: "Top tune albums this month - song and band are fire", links: [171] },
+  { id: 719, url: "lean-gains-698.fit", text: "Home strength routine - no equipment protein and sleep guide", links: [6,60,109] },
+  { id: 720, url: "product-launch-in-699.com", text: "Best software phone of 2024 - device tested and reviewed", links: [199,963] },
+  { id: 721, url: "pizza-lover-700.com", text: "Review of pepperoni places - cheese was amazing and margherita was perfect", links: [531] },
+  { id: 722, url: "century-club-701.net", text: "Fantasy cricket tips - pick your run and bowling team", links: [3,802] },
+  { id: 723, url: "cinema-buff-702.com", text: "Top 10 movie of the year - actor and dialogue made the list", links: [683] },
+  { id: 724, url: "pass-with-ease-703.in", text: "How to score full marks in exam - practise strategy and timetable hacks", links: [264] },
+  { id: 725, url: "thali-time-704.net", text: "Weekend dosa fest - biryani specials and free curry samples", links: [2,10,452,645] },
+  { id: 726, url: "byte-sized-705.com", text: "How to fix common variable loop errors in your git", links: [4,19,376] },
+  { id: 727, url: "budget-travel-706.in", text: "Hidden train gems - route and travel off the beaten path", links: [12] },
+  { id: 728, url: "bass-notes-707.fm", text: "Best rhythm for studying - guitar playlists and song beats", links: [17] },
+  { id: 729, url: "lean-gains-708.com", text: "Quick strength tips - gym in 15 minutes and better weight", links: [6,14] },
+  { id: 730, url: "product-launch-in-709.in", text: "Best battery software of 2024 - laptop tested and reviewed", links: [13,230,500,638] },
+  { id: 731, url: "pizza-lover-710.net", text: "Review of yum places - dough was amazing and slice was perfect", links: [321] },
+  { id: 732, url: "century-club-711.com", text: "How to improve your cricket bowling with simple ODI drills", links: [422,932] },
+  { id: 733, url: "cinema-buff-712.in", text: "Top 10 movie of the year - sequel and film made the list", links: [533,853] },
+  { id: 734, url: "pass-with-ease-713.org", text: "Last minute exam tips - focus on answer and revise notes", links: [5] },
+  { id: 735, url: "thali-time-714.com", text: "Best street restaurant in Pune - biryani and dosa are a must try", links: [4,195] },
+  { id: 736, url: "byte-sized-715.io", text: "algorithm interview questions - project concepts and variable problems", links: [666,806] },
+  { id: 737, url: "budget-travel-716.travel", text: "Best bag spots near Pune - bus and city on a budget", links: [567] },
+  { id: 738, url: "bass-notes-717.com", text: "Top playlist albums this month - album and band are fire", links: [9,80,118,148] },
+  { id: 739, url: "lean-gains-718.in", text: "Quick run tips - stretch in 15 minutes and better gym", links: [15,79,410] },
+  { id: 740, url: "product-launch-in-719.tech", text: "Budget device picks - best gadget under 10k for tech", links: [920] },
+  { id: 741, url: "pizza-lover-720.com", text: "pepperoni secrets revealed - calzone technique and bake tips", links: [3,186,981] },
+  { id: 742, url: "century-club-721.in", text: "Fantasy cricket tips - pick your match and ODI team", links: [152,202] },
+  { id: 743, url: "cinema-buff-722.co", text: "Movie news: actor signs for exciting new script project", links: [12,178,313] },
+  { id: 744, url: "pass-with-ease-723.com", text: "Download free exam exam notes and sample college papers", links: [9,714] },
+  { id: 745, url: "thali-time-724.in", text: "Healthy recipe ideas - swap dosa for sweet daily", links: [765,1015] },
+  { id: 746, url: "byte-sized-725.dev", text: "Learn coding from scratch - git and class for beginners", links: [3,13,113,516] },
+  { id: 747, url: "budget-travel-726.com", text: "Best hotel spots near Pune - city and beach on a budget", links: [437] },
+  { id: 748, url: "bass-notes-727.in", text: "New album release - music drops surprise tune", links: [5,20,548,888] },
+  { id: 749, url: "lean-gains-728.fit", text: "How habit changed my life - stretch habit and strength mindset", links: [6,269,319] },
+  { id: 750, url: "product-launch-in-729.com", text: "Best feature app of 2024 - tech tested and reviewed", links: [5,16,310,570] },
+  { id: 751, url: "pizza-lover-730.net", text: "pizza secrets revealed - margherita technique and topping tips", links: [391,521,671] },
+  { id: 752, url: "century-club-731.net", text: "Fantasy cricket tips - pick your batting and run team", links: [222] },
+  { id: 753, url: "cinema-buff-732.com", text: "Top 10 movie of the year - star and award made the list", links: [1] },
+  { id: 754, url: "pass-with-ease-733.in", text: "Stress-free exam prep - question routine and test schedule", links: [18,204,770,977] },
+  { id: 755, url: "thali-time-734.net", text: "Best street chai in Pune - meal and curry are a must try", links: [3,6,535,905] },
+  { id: 756, url: "byte-sized-735.com", text: "object interview questions - class concepts and function problems", links: [14] },
+  { id: 757, url: "budget-travel-736.in", text: "Best route spots near Pune - city and explore on a budget", links: [6] },
+  { id: 758, url: "bass-notes-737.fm", text: "New guitar release - album drops surprise singer", links: [7,17,428,658] },
+  { id: 759, url: "lean-gains-738.com", text: "Home habit routine - no equipment fitness and strength guide", links: [1,449,509] },
+  { id: 760, url: "product-launch-in-739.in", text: "feature news: software launches new phone with exciting features", links: [400,1006] },
+  { id: 761, url: "pizza-lover-740.com", text: "How to make slice at home with fresh calzone and homemade sauce", links: [8,241,451,624] },
+  { id: 762, url: "century-club-741.com", text: "Cricket coaching guide - master pitch and fielding", links: [42,642,812] },
+  { id: 763, url: "cinema-buff-742.in", text: "Top 10 movie of the year - award and script made the list", links: [363,483] },
+  { id: 764, url: "pass-with-ease-743.org", text: "Common exam mistakes - avoid these study and marks errors", links: [3,594,824,903] },
+  { id: 765, url: "thali-time-744.com", text: "Weekend vada fest - sweet specials and free taste samples", links: [177,206,485,675] },
+  { id: 766, url: "byte-sized-745.io", text: "Build a function project using error and algorithm in one weekend", links: [9,936] },
+  { id: 767, url: "budget-travel-746.travel", text: "Weekend travel idea - head to place and enjoy destination", links: [19] },
+  { id: 768, url: "bass-notes-747.com", text: "New guitar release - tune drops surprise album", links: [589] },
+  { id: 769, url: "lean-gains-748.in", text: "Best health sleep for beginners - start your stretch journey", links: [236,699] },
+  { id: 770, url: "product-launch-in-749.tech", text: "Best camera gadget of 2024 - review tested and reviewed", links: [1,650] },
+  { id: 771, url: "pizza-lover-750.net", text: "Review of margherita places - sauce was amazing and slice was perfect", links: [5,751,904] },
+  { id: 772, url: "century-club-751.in", text: "Cricket coaching guide - master wicket and IPL", links: [6,582] },
+  { id: 773, url: "cinema-buff-752.co", text: "Behind the scenes of the biggest movie - director and award stories", links: [18,483] },
+  { id: 774, url: "pass-with-ease-753.com", text: "Stress-free exam prep - score routine and marks schedule", links: [654,814,944] },
+  { id: 775, url: "thali-time-754.in", text: "Best street cook in Pune - street and vada are a must try", links: [195,335,685] },
+  { id: 776, url: "byte-sized-755.dev", text: "class interview questions - build concepts and object problems", links: [6,12,466,956] },
+  { id: 777, url: "budget-travel-756.com", text: "Hidden bag gems - guide and beach off the beaten path", links: [5,19,752] },
+  { id: 778, url: "bass-notes-757.in", text: "Top singer albums this month - rhythm and artist are fire", links: [908] },
+  { id: 779, url: "lean-gains-758.fit", text: "Best fitness workout for beginners - start your cardio journey", links: [259] },
+  { id: 780, url: "product-launch-in-759.com", text: "software news: AI launches new phone with exciting features", links: [870] },
+  { id: 781, url: "pizza-lover-760.com", text: "How to make topping at home with fresh pepperoni and homemade dough", links: [1,3,265,481] },
+  { id: 782, url: "century-club-761.net", text: "How to improve your cricket boundary with simple wicket drills", links: [13,722,984] },
+  { id: 783, url: "cinema-buff-762.com", text: "Why this movie is a must-watch - actor and cinema explained", links: [1,233,280,373] },
+  { id: 784, url: "pass-with-ease-763.in", text: "How to score full marks in exam - timetable strategy and answer hacks", links: [484] },
+  { id: 785, url: "thali-time-764.net", text: "Easy cook recipe for beginners - spice and street in 20 minutes", links: [195] },
+  { id: 786, url: "byte-sized-765.com", text: "Top function tips - write cleaner project and faster python", links: [4,12,17,76] },
+  { id: 787, url: "budget-travel-766.in", text: "Best visit spots near Pune - travel and explore on a budget", links: [10,16] },
+  { id: 788, url: "bass-notes-767.fm", text: "New playlist release - tune drops surprise track", links: [11,58,199] },
+  { id: 789, url: "lean-gains-768.com", text: "Quick run tips - sleep in 15 minutes and better yoga", links: [69,369,559,691] },
+  { id: 790, url: "product-launch-in-769.in", text: "Best device update of 2024 - laptop tested and reviewed", links: [730,779] },
+  { id: 791, url: "pizza-lover-770.net", text: "yum secrets revealed - oven technique and bake tips", links: [14,101,707,851] },
+  { id: 792, url: "century-club-771.com", text: "Cricket coaching guide - master boundary and match", links: [252,528] },
+  { id: 793, url: "cinema-buff-772.in", text: "Review: new movie out this Friday - award gives a stunning cinema", links: [3,9] },
+  { id: 794, url: "pass-with-ease-773.org", text: "Common exam mistakes - avoid these exam and question errors", links: [12,194,224,860] },
+  { id: 795, url: "thali-time-774.com", text: "curry tour of the city - food stalls and snack corners", links: [3,13,265,885] },
+  { id: 796, url: "byte-sized-775.io", text: "build interview questions - class concepts and algorithm problems", links: [12,20,886,956] },
+  { id: 797, url: "budget-travel-776.travel", text: "Complete explore guide to hotel - city tips you need to know", links: [19,957] },
+  { id: 798, url: "bass-notes-777.com", text: "New guitar release - beat drops surprise album", links: [885] },
+  { id: 799, url: "lean-gains-778.in", text: "Quick weight tips - stretch in 15 minutes and better run", links: [359] },
+  { id: 800, url: "product-launch-in-779.tech", text: "How device is changing software - gadget trends to watch", links: [300,550] },
+  { id: 801, url: "pizza-lover-780.com", text: "Review of crust places - pepperoni was amazing and yum was perfect", links: [1,13,391,983] },
+  { id: 802, url: "century-club-781.in", text: "Cricket coaching guide - master boundary and captain", links: [4,6] },
+  { id: 803, url: "cinema-buff-782.co", text: "Why this movie is a must-watch - scene and script explained", links: [4,83,423] },
+  { id: 804, url: "pass-with-ease-783.com", text: "Last minute exam tips - focus on revision and revise syllabus", links: [488] },
+  { id: 805, url: "thali-time-784.in", text: "Best street food in Pune - restaurant and biryani are a must try", links: [13,195,765] },
+  { id: 806, url: "byte-sized-785.dev", text: "How to fix common coding error errors in your project", links: [11,15,426] },
+  { id: 807, url: "budget-travel-786.com", text: "Budget guide hacks - save money on place and city", links: [11,12] },
+  { id: 808, url: "bass-notes-787.in", text: "New track release - concert drops surprise tune", links: [1,3,818,1008] },
+  { id: 809, url: "lean-gains-788.fit", text: "30-day exercise plan - cardio every morning and stretch at night", links: [15,189,279,739] },
+  { id: 810, url: "product-launch-in-789.com", text: "How tech is changing phone - review trends to watch", links: [320,460,545] },
+  { id: 811, url: "pizza-lover-790.net", text: "sauce secrets revealed - dough technique and yum tips", links: [10,15,561] },
+  { id: 812, url: "century-club-791.net", text: "Fantasy cricket tips - pick your Test and captain team", links: [10,16,19,332] },
+  { id: 813, url: "cinema-buff-792.com", text: "Top 10 movie of the year - star and movie made the list", links: [17,943,965] },
+  { id: 814, url: "pass-with-ease-793.in", text: "Stress-free exam prep - test routine and answer schedule", links: [9,464,564] },
+  { id: 815, url: "thali-time-794.net", text: "Best street dosa in Pune - restaurant and sweet are a must try", links: [17,205,325] },
+  { id: 816, url: "byte-sized-795.com", text: "Top object tips - write cleaner hack and faster algorithm", links: [2,8,156,346] },
+  { id: 817, url: "budget-travel-796.in", text: "Complete mountain guide to visit - bag tips you need to know", links: [7] },
+  { id: 818, url: "bass-notes-797.fm", text: "How to play artist on album - beginner music lessons", links: [2] },
+  { id: 819, url: "lean-gains-798.com", text: "Home diet routine - no equipment protein and workout guide", links: [2,99,959] },
+  { id: 820, url: "product-launch-in-799.in", text: "Best tech phone of 2024 - device tested and reviewed", links: [260] },
+  { id: 821, url: "pizza-lover-800.com", text: "Best mozzarella in the city - try our bake and sauce special", links: [11,13,931] },
+  { id: 822, url: "century-club-801.com", text: "Cricket coaching guide - master six and pitch", links: [6,502,742] },
+  { id: 823, url: "cinema-buff-802.in", text: "Why this movie is a must-watch - film and review explained", links: [13,19,697] },
+  { id: 824, url: "pass-with-ease-803.org", text: "Stress-free exam prep - exam routine and score schedule", links: [114] },
+  { id: 825, url: "thali-time-804.com", text: "Weekend dosa fest - chai specials and free restaurant samples", links: [14,795] },
+  { id: 826, url: "byte-sized-805.io", text: "Learn error from scratch - class and loop for beginners", links: [5,426,496] },
+  { id: 827, url: "budget-travel-806.travel", text: "Budget hotel hacks - save money on travel and explore", links: [11,627] },
+  { id: 828, url: "bass-notes-807.com", text: "How to play playlist on song - beginner track lessons", links: [28,108,638] },
+  { id: 829, url: "lean-gains-808.in", text: "Best sleep habit for beginners - start your protein journey", links: [14,15,199,794] },
+  { id: 830, url: "product-launch-in-809.tech", text: "Budget review picks - best startup under 10k for software", links: [4,16] },
+  { id: 831, url: "pizza-lover-810.net", text: "Best dough in the city - try our sauce and pizza special", links: [301,913] },
+  { id: 832, url: "century-club-811.in", text: "Fantasy cricket tips - pick your six and cricket team", links: [17,243,644,772] },
+  { id: 833, url: "cinema-buff-812.co", text: "Behind the scenes of the biggest movie - review and movie stories", links: [3,12,20,435] },
+  { id: 834, url: "pass-with-ease-813.com", text: "Last minute exam tips - focus on test and revise syllabus", links: [15,20,598] },
+  { id: 835, url: "thali-time-814.in", text: "Easy dosa recipe for beginners - food and snack in 20 minutes", links: [228,315,425] },
+  { id: 836, url: "byte-sized-815.dev", text: "Build a debug project using error and hack in one weekend", links: [466,586] },
+  { id: 837, url: "budget-travel-816.com", text: "Best destination spots near Pune - visit and city on a budget", links: [817] },
+  { id: 838, url: "bass-notes-817.in", text: "Top song albums this month - guitar and beat are fire", links: [248] },
+  { id: 839, url: "lean-gains-818.fit", text: "30-day diet plan - cardio every morning and habit at night", links: [324] },
+  { id: 840, url: "product-launch-in-819.com", text: "Best software startup of 2024 - battery tested and reviewed", links: [12,230,262,1010] },
+  { id: 841, url: "pizza-lover-820.com", text: "How to make pepperoni at home with fresh pizza and homemade mozzarella", links: [11,871] },
+  { id: 842, url: "century-club-821.net", text: "How to improve your cricket cricket with simple batting drills", links: [802] },
+  { id: 843, url: "cinema-buff-822.com", text: "Behind the scenes of the biggest movie - actor and trailer stories", links: [5,614] },
+  { id: 844, url: "pass-with-ease-823.in", text: "Last minute exam tips - focus on practise and revise paper", links: [6,14] },
+  { id: 845, url: "thali-time-824.net", text: "Best street curry in Pune - snack and cook are a must try", links: [125,425,807] },
+  { id: 846, url: "byte-sized-825.com", text: "Learn class from scratch - variable and object for beginners", links: [17,636] },
+  { id: 847, url: "budget-travel-826.in", text: "Complete place guide to city - destination tips you need to know", links: [377] },
+  { id: 848, url: "bass-notes-827.fm", text: "Top beat albums this month - tune and rhythm are fire", links: [12,588] },
+  { id: 849, url: "lean-gains-828.com", text: "30-day strength plan - sleep every morning and fitness at night", links: [19,171,789] },
+  { id: 850, url: "product-launch-in-829.in", text: "Budget tech picks - best battery under 10k for app", links: [18,360] },
+  { id: 851, url: "pizza-lover-830.net", text: "sauce secrets revealed - bake technique and calzone tips", links: [3,5,17,433] },
+  { id: 852, url: "century-club-831.com", text: "Top cricket moments of the season - match and ODI shine", links: [168,552] },
+  { id: 853, url: "cinema-buff-832.in", text: "Top 10 movie of the year - star and script made the list", links: [18,673,893] },
+  { id: 854, url: "pass-with-ease-833.org", text: "How to score full marks in exam - college strategy and paper hacks", links: [254,300] },
+  { id: 855, url: "thali-time-834.com", text: "vada tour of the city - spice stalls and meal corners", links: [15,16,515,831] },
+  { id: 856, url: "byte-sized-835.io", text: "Top build tips - write cleaner hack and faster object", links: [12,106,126,630] },
+  { id: 857, url: "budget-travel-836.travel", text: "Weekend guide idea - head to bus and enjoy beach", links: [167,327,527,597] },
+  { id: 858, url: "bass-notes-837.com", text: "singer history - how artist shaped modern rhythm", links: [15,298] },
+  { id: 859, url: "lean-gains-838.in", text: "Best yoga workout for beginners - start your sleep journey", links: [139,379,739] },
+  { id: 860, url: "product-launch-in-839.tech", text: "How update is changing app - camera trends to watch", links: [8] },
+  { id: 861, url: "pizza-lover-840.com", text: "Best calzone in the city - try our mozzarella and margherita special", links: [2,11,491] },
+  { id: 862, url: "century-club-841.in", text: "Cricket match review - six and cricket highlights from today", links: [3,752,1012] },
+  { id: 863, url: "cinema-buff-842.co", text: "Why this movie is a must-watch - blockbuster and actor explained", links: [8,333,463,803] },
+  { id: 864, url: "pass-with-ease-843.com", text: "Download free exam marks notes and sample notes papers", links: [13,64,134,602] },
+  { id: 865, url: "thali-time-844.in", text: "Best street food in Pune - street and recipe are a must try", links: [3,6] },
+  { id: 866, url: "byte-sized-845.dev", text: "Build a algorithm project using build and debug in one weekend", links: [4,10] },
+  { id: 867, url: "budget-travel-846.com", text: "Complete bag guide to beach - bus tips you need to know", links: [16,625] },
+  { id: 868, url: "bass-notes-847.in", text: "How to play rhythm on guitar - beginner beat lessons", links: [476] },
+  { id: 869, url: "lean-gains-848.fit", text: "Home weight routine - no equipment gym and protein guide", links: [79,119,349,749] },
+  { id: 870, url: "product-launch-in-849.com", text: "Budget phone picks - best feature under 10k for AI", links: [100,260,515,730] },
+  { id: 871, url: "pizza-lover-850.net", text: "How to make pepperoni at home with fresh cheese and homemade margherita", links: [17,531,811,841] },
+  { id: 872, url: "century-club-851.net", text: "Cricket coaching guide - master IPL and ODI", links: [18,452,752,812] },
+  { id: 873, url: "cinema-buff-852.com", text: "Top 10 movie of the year - movie and award made the list", links: [3,4,313] },
+  { id: 874, url: "pass-with-ease-853.in", text: "Last minute exam tips - focus on exam and revise notes", links: [13,16,414,696] },
+  { id: 875, url: "thali-time-854.net", text: "Best street snack in Pune - cook and meal are a must try", links: [13,14,65] },
+  { id: 876, url: "byte-sized-855.com", text: "Learn hack from scratch - loop and object for beginners", links: [20,36,466,496] },
+  { id: 877, url: "budget-travel-856.in", text: "Hidden train gems - bus and hotel off the beaten path", links: [8,407,577,997] },
+  { id: 878, url: "bass-notes-857.fm", text: "Best beat for studying - singer playlists and concert beats", links: [17,548,758] },
+  { id: 879, url: "lean-gains-858.com", text: "30-day run plan - yoga every morning and workout at night", links: [2] },
+  { id: 880, url: "product-launch-in-859.in", text: "Budget app picks - best battery under 10k for screen", links: [14,188] },
+  { id: 881, url: "pizza-lover-860.com", text: "How to make margherita at home with fresh oven and homemade sauce", links: [19,691,781,931] },
+  { id: 882, url: "century-club-861.com", text: "Top cricket moments of the season - six and run shine", links: [712] },
+  { id: 883, url: "cinema-buff-862.in", text: "Movie news: director signs for exciting new blockbuster project", links: [14] },
+  { id: 884, url: "pass-with-ease-863.org", text: "Stress-free exam prep - test routine and score schedule", links: [64,75,404,424] },
+  { id: 885, url: "thali-time-864.com", text: "Easy cook recipe for beginners - taste and curry in 20 minutes", links: [13,195] },
+  { id: 886, url: "byte-sized-865.io", text: "Top project tips - write cleaner array and faster loop", links: [566] },
+  { id: 887, url: "budget-travel-866.travel", text: "Complete travel guide to visit - hotel tips you need to know", links: [77,397] },
+  { id: 888, url: "bass-notes-867.com", text: "Top rhythm albums this month - concert and band are fire", links: [2,9,548,788] },
+  { id: 889, url: "lean-gains-868.in", text: "Best yoga health for beginners - start your cardio journey", links: [529] },
+  { id: 890, url: "product-launch-in-869.tech", text: "Best gadget tech of 2024 - camera tested and reviewed", links: [14,18,330,920] },
+  { id: 891, url: "pizza-lover-870.net", text: "Review of topping places - pepperoni was amazing and sauce was perfect", links: [207] },
+  { id: 892, url: "century-club-871.in", text: "Top cricket moments of the season - match and IPL shine", links: [7,10] },
+  { id: 893, url: "cinema-buff-872.co", text: "Movie news: movie signs for exciting new dialogue project", links: [803] },
+  { id: 894, url: "pass-with-ease-873.com", text: "Stress-free exam prep - marks routine and score schedule", links: [14,19,234,424] },
+  { id: 895, url: "thali-time-874.in", text: "Best street recipe in Pune - meal and chai are a must try", links: [13,14,295,299] },
+  { id: 896, url: "byte-sized-875.dev", text: "Build a git project using function and object in one weekend", links: [726] },
+  { id: 897, url: "budget-travel-876.com", text: "Complete guide guide to trip - bus tips you need to know", links: [5,497,630] },
+  { id: 898, url: "bass-notes-877.in", text: "Best melody for studying - album playlists and band beats", links: [377] },
+  { id: 899, url: "lean-gains-878.fit", text: "Best run gym for beginners - start your strength journey", links: [7,169] },
+  { id: 900, url: "product-launch-in-879.com", text: "Budget camera picks - best feature under 10k for screen", links: [220] },
+  { id: 901, url: "pizza-lover-880.com", text: "How to make margherita at home with fresh pizza and homemade calzone", links: [7] },
+  { id: 902, url: "century-club-881.net", text: "Top cricket moments of the season - pitch and Test shine", links: [14,802,862,1012] },
+  { id: 903, url: "cinema-buff-882.com", text: "Top 10 movie of the year - star and cinema made the list", links: [6] },
+  { id: 904, url: "pass-with-ease-883.in", text: "Common exam mistakes - avoid these notes and study errors", links: [964,974] },
+  { id: 905, url: "thali-time-884.net", text: "Weekend taste fest - food specials and free dosa samples", links: [544] },
+  { id: 906, url: "byte-sized-885.com", text: "How to fix common hack git errors in your coding", links: [536,706] },
+  { id: 907, url: "budget-travel-886.in", text: "Best guide spots near Pune - explore and route on a budget", links: [367,587,767] },
+  { id: 908, url: "bass-notes-887.fm", text: "Best guitar for studying - lyrics playlists and band beats", links: [4,378,678] },
+  { id: 909, url: "lean-gains-888.com", text: "Quick stretch tips - fitness in 15 minutes and better gym", links: [11,215,869] },
+  { id: 910, url: "product-launch-in-889.in", text: "Best battery review of 2024 - app tested and reviewed", links: [160,350,1020] },
+  { id: 911, url: "pizza-lover-890.net", text: "sauce secrets revealed - bake technique and cheese tips", links: [13] },
+  { id: 912, url: "century-club-891.com", text: "Fantasy cricket tips - pick your bowling and captain team", links: [82,205,572] },
+  { id: 913, url: "cinema-buff-892.in", text: "Review: new movie out this Friday - director gives a stunning scene", links: [11,14,343] },
+  { id: 914, url: "pass-with-ease-893.org", text: "Stress-free exam prep - notes routine and paper schedule", links: [1,7] },
+  { id: 915, url: "thali-time-894.com", text: "taste tour of the city - recipe stalls and cook corners", links: [4,7] },
+  { id: 916, url: "byte-sized-895.io", text: "How to fix common build project errors in your git", links: [9,19] },
+  { id: 917, url: "budget-travel-896.travel", text: "Complete route guide to bag - bus tips you need to know", links: [537] },
+  { id: 918, url: "bass-notes-897.com", text: "Best concert for studying - artist playlists and melody beats", links: [4,298,919] },
+  { id: 919, url: "lean-gains-898.in", text: "Best exercise stretch for beginners - start your sleep journey", links: [269] },
+  { id: 920, url: "product-launch-in-899.tech", text: "Top screen app apps you need right now for startup", links: [3,11,20,280] },
+  { id: 921, url: "pizza-lover-900.com", text: "Best slice in the city - try our pepperoni and crust special", links: [13,371,866] },
+  { id: 922, url: "century-club-901.in", text: "Cricket coaching guide - master IPL and ODI", links: [627,752,762] },
+  { id: 923, url: "cinema-buff-902.co", text: "Why this movie is a must-watch - sequel and trailer explained", links: [10,233,513] },
+  { id: 924, url: "pass-with-ease-903.com", text: "Common exam mistakes - avoid these timetable and study errors", links: [622] },
+  { id: 925, url: "thali-time-904.in", text: "Best street chai in Pune - spice and restaurant are a must try", links: [3,4] },
+  { id: 926, url: "byte-sized-905.dev", text: "array interview questions - error concepts and class problems", links: [976] },
+  { id: 927, url: "budget-travel-906.com", text: "Best city spots near Pune - bag and destination on a budget", links: [15,164,786] },
+  { id: 928, url: "bass-notes-907.in", text: "concert history - how beat shaped modern album", links: [78,178,468] },
+  { id: 929, url: "lean-gains-908.fit", text: "Best diet workout for beginners - start your health journey", links: [17,199,589,702] },
+  { id: 930, url: "product-launch-in-909.com", text: "Budget AI picks - best battery under 10k for screen", links: [11,13,447,840] },
+  { id: 931, url: "pizza-lover-910.net", text: "Weekend guide to mozzarella - pepperoni lovers unite for pizza night", links: [760,893] },
+  { id: 932, url: "century-club-911.net", text: "Top cricket moments of the season - wicket and captain shine", links: [7,112,487,812] },
+  { id: 933, url: "cinema-buff-912.com", text: "Top 10 movie of the year - movie and scene made the list", links: [19,193,553,563] },
+  { id: 934, url: "pass-with-ease-913.in", text: "Stress-free exam prep - score routine and timetable schedule", links: [744] },
+  { id: 935, url: "thali-time-914.net", text: "Best street dosa in Pune - snack and chai are a must try", links: [1015] },
+  { id: 936, url: "byte-sized-915.com", text: "How to fix common debug variable errors in your function", links: [146,240,316,346] },
+  { id: 937, url: "budget-travel-916.in", text: "Weekend trip idea - head to city and enjoy place", links: [5,957] },
+  { id: 938, url: "bass-notes-917.fm", text: "How to play beat on lyrics - beginner melody lessons", links: [728,818] },
+  { id: 939, url: "lean-gains-918.com", text: "Best yoga habit for beginners - start your health journey", links: [14] },
+  { id: 940, url: "product-launch-in-919.in", text: "How tech is changing startup - camera trends to watch", links: [2,20] },
+  { id: 941, url: "pizza-lover-920.com", text: "Best sauce in the city - try our oven and calzone special", links: [141,546,651] },
+  { id: 942, url: "century-club-921.com", text: "Cricket match review - bowling and pitch highlights from today", links: [16] },
+  { id: 943, url: "cinema-buff-922.in", text: "Movie news: star signs for exciting new movie project", links: [20,203,333] },
+  { id: 944, url: "pass-with-ease-923.org", text: "Last minute exam tips - focus on tips and revise score", links: [11,12,128,277] },
+  { id: 945, url: "thali-time-924.com", text: "meal tour of the city - sweet stalls and vada corners", links: [5,384,505] },
+  { id: 946, url: "byte-sized-925.io", text: "variable interview questions - project concepts and class problems", links: [10,186,296,315] },
+  { id: 947, url: "budget-travel-926.travel", text: "Hidden bag gems - beach and place off the beaten path", links: [577] },
+  { id: 948, url: "bass-notes-927.com", text: "Top artist albums this month - singer and guitar are fire", links: [3,247,866,938] },
+  { id: 949, url: "lean-gains-928.in", text: "30-day fitness plan - stretch every morning and sleep at night", links: [19,339,399,939] },
+  { id: 950, url: "product-launch-in-929.tech", text: "feature news: screen launches new device with exciting features", links: [610,900] },
+  { id: 951, url: "pizza-lover-930.net", text: "How to make pizza at home with fresh yum and homemade calzone", links: [8,616,891] },
+  { id: 952, url: "century-club-931.in", text: "How to improve your cricket cricket with simple bowling drills", links: [32,55,482] },
+  { id: 953, url: "cinema-buff-932.co", text: "Top 10 movie of the year - script and movie made the list", links: [3] },
+  { id: 954, url: "pass-with-ease-933.com", text: "Common exam mistakes - avoid these answer and study errors", links: [7,10,904] },
+  { id: 955, url: "thali-time-934.in", text: "Best street curry in Pune - recipe and dosa are a must try", links: [4,10,57,465] },
+  { id: 956, url: "byte-sized-935.dev", text: "How to fix common class debug errors in your build", links: [14,606] },
+  { id: 957, url: "budget-travel-936.com", text: "Weekend hotel idea - head to train and enjoy route", links: [13] },
+  { id: 958, url: "bass-notes-937.in", text: "Best artist for studying - lyrics playlists and guitar beats", links: [4,548,708,781] },
+  { id: 959, url: "lean-gains-938.fit", text: "Best sleep yoga for beginners - start your gym journey", links: [16] },
+  { id: 960, url: "product-launch-in-939.com", text: "Budget feature picks - best startup under 10k for laptop", links: [14,643] },
+  { id: 961, url: "pizza-lover-940.com", text: "Review of pepperoni places - calzone was amazing and topping was perfect", links: [371] },
+  { id: 962, url: "century-club-941.net", text: "How to improve your cricket century with simple IPL drills", links: [9,662,682] },
+  { id: 963, url: "cinema-buff-942.com", text: "Behind the scenes of the biggest movie - film and dialogue stories", links: [333,923] },
+  { id: 964, url: "pass-with-ease-943.in", text: "Last minute exam tips - focus on tips and revise test", links: [4] },
+  { id: 965, url: "thali-time-944.net", text: "Weekend chai fest - food specials and free vada samples", links: [12,17,145] },
+  { id: 966, url: "byte-sized-945.com", text: "How to fix common class build errors in your git", links: [15,20,196,493] },
+  { id: 967, url: "budget-travel-946.in", text: "Hidden destination gems - guide and beach off the beaten path", links: [8,16,347,1020] },
+  { id: 968, url: "bass-notes-947.fm", text: "Best concert for studying - rhythm playlists and guitar beats", links: [205] },
+  { id: 969, url: "lean-gains-948.com", text: "How strength changed my life - exercise habit and fitness mindset", links: [109,122,589,819] },
+  { id: 970, url: "product-launch-in-949.in", text: "How AI is changing tech - update trends to watch", links: [8,920,990] },
+  { id: 971, url: "pizza-lover-950.net", text: "Best sauce in the city - try our cheese and pizza special", links: [141,833] },
+  { id: 972, url: "century-club-951.com", text: "Cricket match review - captain and wicket highlights from today", links: [14,642,1012] },
+  { id: 973, url: "cinema-buff-952.in", text: "Review: new movie out this Friday - actor gives a stunning director", links: [9,12,13] },
+  { id: 974, url: "pass-with-ease-953.org", text: "Download free exam revision notes and sample practise papers", links: [374,564,614] },
+  { id: 975, url: "thali-time-954.com", text: "Healthy dosa ideas - swap vada for food daily", links: [315,956] },
+  { id: 976, url: "byte-sized-955.io", text: "Top git tips - write cleaner class and faster variable", links: [19,76] },
+  { id: 977, url: "budget-travel-956.travel", text: "Budget train hacks - save money on route and place", links: [297,797,810] },
+  { id: 978, url: "bass-notes-957.com", text: "Best melody for studying - artist playlists and beat beats", links: [798] },
+  { id: 979, url: "lean-gains-958.in", text: "How exercise changed my life - fitness habit and weight mindset", links: [9,12,107,987] },
+  { id: 980, url: "product-launch-in-959.tech", text: "device news: phone launches new app with exciting features", links: [250] },
+  { id: 981, url: "pizza-lover-960.com", text: "Best dough in the city - try our yum and slice special", links: [4,7,14,721] },
+  { id: 982, url: "century-club-961.in", text: "Cricket coaching guide - master fielding and boundary", links: [562] },
+  { id: 983, url: "cinema-buff-962.co", text: "Top 10 movie of the year - scene and star made the list", links: [573,583] },
+  { id: 984, url: "pass-with-ease-963.com", text: "Common exam mistakes - avoid these marks and notes errors", links: [4,13] },
+  { id: 985, url: "thali-time-964.in", text: "Easy street recipe for beginners - sweet and taste in 20 minutes", links: [15,355,475] },
+  { id: 986, url: "byte-sized-965.dev", text: "How to fix common coding class errors in your build", links: [12] },
+  { id: 987, url: "budget-travel-966.com", text: "Complete travel guide to place - visit tips you need to know", links: [217,343,404] },
+  { id: 988, url: "bass-notes-967.in", text: "artist history - how melody shaped modern rhythm", links: [268,662] },
+  { id: 989, url: "lean-gains-968.fit", text: "How protein changed my life - health habit and habit mindset", links: [8,199,429,789] },
+  { id: 990, url: "product-launch-in-969.com", text: "Best feature phone of 2024 - startup tested and reviewed", links: [3,15,820] },
+  { id: 991, url: "pizza-lover-970.net", text: "Best topping in the city - try our margherita and pizza special", links: [9,19,311,1016] },
+  { id: 992, url: "century-club-971.net", text: "Top cricket moments of the season - century and cricket shine", links: [942] },
+  { id: 993, url: "cinema-buff-972.com", text: "Behind the scenes of the biggest movie - script and star stories", links: [9,323] },
+  { id: 994, url: "pass-with-ease-973.in", text: "Common exam mistakes - avoid these marks and answer errors", links: [814,836] },
+  { id: 995, url: "thali-time-974.net", text: "Weekend taste fest - chai specials and free meal samples", links: [17,195,245,770] },
+  { id: 996, url: "byte-sized-975.com", text: "How to fix common class algorithm errors in your error", links: [217,529] },
+  { id: 997, url: "budget-travel-976.in", text: "Weekend trip idea - head to hotel and enjoy beach", links: [787,797] },
+  { id: 998, url: "bass-notes-977.fm", text: "New rhythm release - beat drops surprise band", links: [19] },
+  { id: 999, url: "lean-gains-978.com", text: "How sleep changed my life - fitness habit and weight mindset", links: [11] },
+  { id: 1000, url: "product-launch-in-979.in", text: "Best tech feature of 2024 - AI tested and reviewed", links: [570,786] },
+  { id: 1001, url: "pizza-lover-980.com", text: "Weekend guide to dough - topping lovers unite for cheese night", links: [19] },
+  { id: 1002, url: "century-club-981.com", text: "How to improve your cricket match with simple cricket drills", links: [102,432,622,672] },
+  { id: 1003, url: "cinema-buff-982.in", text: "Why this movie is a must-watch - director and cinema explained", links: [12,14,245] },
+  { id: 1004, url: "pass-with-ease-983.org", text: "How to score full marks in exam - revision strategy and question hacks", links: [15,74] },
+  { id: 1005, url: "thali-time-984.com", text: "Healthy vada ideas - swap spice for taste daily", links: [325] },
+  { id: 1006, url: "byte-sized-985.io", text: "Top class tips - write cleaner build and faster function", links: [15,86,606] },
+  { id: 1007, url: "budget-travel-986.travel", text: "Best mountain spots near Pune - bus and destination on a budget", links: [17] },
+  { id: 1008, url: "bass-notes-987.com", text: "Best track for studying - music playlists and artist beats", links: [7,568] },
+  { id: 1009, url: "lean-gains-988.in", text: "How diet changed my life - sleep habit and exercise mindset", links: [17,809,1019] },
+  { id: 1010, url: "product-launch-in-989.tech", text: "How device is changing review - camera trends to watch", links: [5,18,840,963] },
+  { id: 1011, url: "pizza-lover-990.net", text: "Best bake in the city - try our yum and cheese special", links: [531,751] },
+  { id: 1012, url: "century-club-991.in", text: "How to improve your cricket ODI with simple run drills", links: [9,13,689,702] },
+  { id: 1013, url: "cinema-buff-992.co", text: "Review: new movie out this Friday - scene gives a stunning review", links: [18,24,103,783] },
+  { id: 1014, url: "pass-with-ease-993.com", text: "Last minute exam tips - focus on timetable and revise notes", links: [944] },
+  { id: 1015, url: "thali-time-994.in", text: "food tour of the city - cook stalls and street corners", links: [15] },
+  { id: 1016, url: "byte-sized-995.dev", text: "variable interview questions - class concepts and algorithm problems", links: [17,771,866] },
+  { id: 1017, url: "budget-travel-996.com", text: "Budget destination hacks - save money on beach and city", links: [20] },
+  { id: 1018, url: "bass-notes-997.in", text: "Best beat for studying - artist playlists and lyrics beats", links: [3,17,348,448] },
+  { id: 1019, url: "lean-gains-998.fit", text: "Quick workout tips - yoga in 15 minutes and better run", links: [13,369,489,714] },
+  { id: 1020, url: "product-launch-in-999.com", text: "Top tech AI apps you need right now for battery", links: [920,1000] },
+];
+const N = PAGES.length;
+
+// Map page id -> index in PAGES array
+const idToIdx = {};
+PAGES.forEach(function(p, i) { idToIdx[p.id] = i; });
+
+// Count how many pages link TO each page and store incoming links array
+const inLinkCount = new Array(N).fill(0);
+const incomingLinks = Array.from({ length: N }, function() { return []; });
+
+PAGES.forEach(function(page) {
+  page.links.forEach(function(targetId) {
+    var targetIdx = idToIdx[targetId];
+    if (targetIdx !== undefined) {
+      inLinkCount[targetIdx]++;
+      incomingLinks[targetIdx].push(page.id);
+    }
+  });
+});
+
+// Surfer scores array
+var surferScores = new Array(N).fill(0);
+var currentSearchWord = '';
+var searchDebounceTimer = null;
+
+// ── FUN FACTS DATA ───────────────────────────────────────────
+const FUN_FACTS = [
+  {
+    title: "🧱 Fact #1: The Lego Server",
+    text: "In 1998 at Stanford, Larry Page and Sergey Brin built the very first storage server for Google using colourful Lego bricks! They couldn't afford a rack case, so they stacked 10 4GB hard drives inside custom Lego towers.",
+    badge: "Origin Story"
+  },
+  {
+    title: "🍕 Fact #2: Keyword Spammers of 1997",
+    text: "Before PageRank in 1997, search engines merely counted how often a word appeared. Sites would repeat 'pizza pizza pizza pizza pizza' 100 times in hidden white text at the bottom of the page to cheat their way to the #1 spot!",
+    badge: "1997 Hack"
+  },
+  {
+    title: "🏄 Fact #3: The Random Surfer Model",
+    text: "PageRank is modeled after a tired university student surfing the web. 85% of the time they click a random link on the page; 15% of the time they get bored and teleport to a brand new page anywhere on the internet!",
+    badge: "Mathematics"
+  },
+  {
+    title: "🔗 Fact #4: Why Links Beat Words",
+    text: "A link is an endorsement! If 50 independent websites link to a food guide, it's trustworthy. Even if a spam page mentions 'pizza' 100 times, if nobody links to it, the Random Surfer ignores it completely.",
+    badge: "PageRank Secret"
+  },
+  {
+    title: "🌐 Fact #5: Size of the Web in 1998",
+    text: "In 1998, Google index covered around 25 million web pages. Today, Google indexes hundreds of billions! Our Mini Google has 1,020 simulated web pages right inside this single file.",
+    badge: "Web History"
+  },
+  {
+    title: "🎨 Fact #6: The Very First Google Doodle",
+    text: "The first ever Google Doodle was created in August 1998. It was a simple stick-figure drawn behind the second 'o' in Google — notifying users that Larry & Sergey were out of office at the Burning Man festival!",
+    badge: "Trivia"
+  }
+];
+
+function showFunFact(index) {
+  var fact = FUN_FACTS[index];
+  if (!fact) return;
+
+  triggerSparkleBurst(window.innerWidth / 2, window.innerHeight / 2, 25);
+  document.getElementById('modal-title').innerHTML = fact.title;
+
+  var bodyHtml = ''
+    + '<div style="margin-bottom:12px;"><span class="fc-badge" style="background:#EDE9FE; color:#6D28D9; font-size:11px; padding:4px 10px;">' + fact.badge + '</span></div>'
+    + '<div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:18px 20px; border-radius:18px; font-size:14.5px; line-height:1.7; color:#334155;">'
+    + fact.text
+    + '</div>'
+    + '<div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">'
+    + '  <button class="link-chip" onclick="showFunFact(' + ((index + 1) % FUN_FACTS.length) + ')">Next Cloud Fact ✨</button>'
+    + '  <button class="link-chip" style="background:#7C3AED; color:white; border:none; padding:8px 20px;" onclick="enterSearchEngine()">Enter Search Engine ☁️</button>'
+    + '</div>';
+
+  document.getElementById('modal-body').innerHTML = bodyHtml;
+  document.getElementById('inspector-modal').style.display = 'flex';
+}
+
+// ── SCREEN TRANSITIONS ───────────────────────────────────────
+function enterSearchEngine() {
+  closeInspector();
+  triggerSparkleBurst(window.innerWidth / 2, window.innerHeight / 2, 45);
+
+  var landing = document.getElementById('landing-screen');
+  var app = document.getElementById('app-container');
+
+  landing.style.opacity = '0';
+  landing.style.transform = 'scale(0.92)';
+
+  setTimeout(function() {
+    landing.style.display = 'none';
+    app.style.display = 'block';
+    setTimeout(function() {
+      app.style.opacity = '1';
+    }, 50);
+
+    // Initial search or focus
+    var input = document.getElementById('search-input');
+    input.focus();
+    if (!input.value) {
+      quickSearch('pizza');
+    }
+  }, 400);
+
+  showToast('Welcome to Netra\'s Mini Google 1998 ✨');
+}
+
+function returnToLanding() {
+  closeInspector();
+  triggerSparkleBurst(window.innerWidth / 2, 80, 25);
+
+  var landing = document.getElementById('landing-screen');
+  var app = document.getElementById('app-container');
+
+  app.style.opacity = '0';
+
+  setTimeout(function() {
+    app.style.display = 'none';
+    landing.style.display = 'flex';
+    setTimeout(function() {
+      landing.style.opacity = '1';
+      landing.style.transform = 'scale(1)';
+    }, 50);
+  }, 400);
+}
+
+// ── RANDOM SURFER: 100,000 moves ─────────────────────────────
+function calculateSurfer() {
+  var MOVES   = 100000;
+  var BOREDOM = 0.15;
+  var visits  = new Array(N).fill(0);
+  var cur     = Math.floor(Math.random() * N);
+
+  for (var i = 0; i < MOVES; i++) {
+    visits[cur]++;
+    if (Math.random() < BOREDOM || PAGES[cur].links.length === 0) {
+      cur = Math.floor(Math.random() * N);
+    } else {
+      var links  = PAGES[cur].links;
+      var chosen = links[Math.floor(Math.random() * links.length)];
+      cur = idToIdx[chosen];
+    }
+  }
+
+  surferScores = visits.map(function(v) { return v / MOVES; });
+  return surferScores;
+}
+
+// ── Interactive Surfer Runner with Animation ─────────────────
+function runSurferInteractive() {
+  var btn = document.getElementById('surfer-btn');
+  var bar = document.getElementById('surfer-progress-bar');
+  var fill = document.getElementById('surfer-progress-fill');
+
+  btn.disabled = true;
+  btn.innerHTML = '🏄‍♀️ Surfing 1,020 pages (100k hops)... ✨';
+  bar.style.display = 'block';
+  fill.style.width = '0%';
+
+  setTimeout(function() { fill.style.width = '65%'; }, 100);
+
+  setTimeout(function() {
+    fill.style.width = '100%';
+    calculateSurfer();
+
+    var total = surferScores.reduce(function(a, b) { return a + b; }, 0);
+    document.getElementById('surfer-status').textContent =
+      '✨ Surfer finished 100,000 hops! All scores add up to ' + (total * 100).toFixed(1) + '% ✓';
+
+    triggerSparkleBurst(window.innerWidth / 2, window.innerHeight * 0.75, 40);
+    showToast('Surfer updated! 100,000 hops recalculated 🏄‍♀️✨');
+
+    var word = document.getElementById('search-input').value.trim();
+    if (word) showResults(word);
+
+    setTimeout(function() {
+      btn.disabled = false;
+      btn.innerHTML = '🎲 Run the surfer again, Netra!';
+      bar.style.display = 'none';
+      fill.style.width = '0%';
+    }, 400);
+  }, 450);
+}
+
+function runSurfer() {
+  calculateSurfer();
+  var total = surferScores.reduce(function(a, b) { return a + b; }, 0);
+  document.getElementById('surfer-status').textContent =
+    '✨ Surfer active! All scores add up to ' + (total * 100).toFixed(1) + '% ✓';
+}
+
+// ── COUNT whole-word occurrences ─────────────────────────────
+function countWord(text, word) {
+  var re = new RegExp('\\b' + word + '\\b', 'gi');
+  var m  = text.match(re);
+  return m ? m.length : 0;
+}
+
+// ── HIGHLIGHT the search word ────────────────────────────────
+function highlight(text, word) {
+  var re = new RegExp('(\\b' + word + '\\b)', 'gi');
+  return text.replace(re, '<span class="hl">$1</span>');
+}
+
+// ── BUILD ONE RESULT CARD ────────────────────────────────────
+function makeCard(rank, page, word, score, isOld) {
+  var idx = idToIdx[page.id];
+  var scoreText = isOld
+    ? 'Word count: <strong>' + score + '</strong>'
+    : 'Surfer score: <strong>' + (score * 100).toFixed(1) + '%</strong>'
+      + ' &nbsp;|&nbsp; Links in: <strong>' + inLinkCount[idx] + '</strong>';
+
+  return '<div class="card">'
+    + '<div class="card-top">'
+    + '  <span class="card-rank">#' + rank + '</span>'
+    + '  <div class="card-actions">'
+    + '    <button class="card-btn" onclick="openInspector(' + page.id + ')" title="Inspect page and links">🔍 Inspect</button>'
+    + '    <button class="card-btn" onclick="copyUrl(\'' + page.url + '\')" title="Copy URL">📋 Copy</button>'
+    + '  </div>'
+    + '</div>'
+    + '<div class="card-url">🔗 ' + page.url + '</div>'
+    + '<div class="card-text">' + highlight(page.text, word) + '</div>'
+    + '<div class="card-score">' + scoreText + '</div>'
+    + '</div>';
+}
+
+// ── SHOW RESULTS ─────────────────────────────────────────────
+function showResults(word) {
+  currentSearchWord = word;
+  var esc = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  var matches = PAGES.filter(function(p) { return countWord(p.text, esc) > 0; });
+
+  var noResultsEl = document.getElementById('no-results');
+  var resultsArea  = document.getElementById('results-area');
+  var statsEl      = document.getElementById('results-stats');
+
+  if (matches.length === 0) {
+    noResultsEl.style.display = 'block';
+    resultsArea.style.display = 'none';
+    statsEl.style.display = 'none';
+    document.getElementById('old-results').innerHTML  = '';
+    document.getElementById('surf-results').innerHTML = '';
+    return;
+  }
+
+  noResultsEl.style.display = 'none';
+  resultsArea.style.display = 'flex';
+  statsEl.style.display = 'block';
+  statsEl.innerHTML = '✨ Found <strong>' + matches.length + '</strong> matching pages for "<strong>' + word + '</strong>" in Netra\'s 1998 web';
+
+  // Old way: sort by word count
+  var oldSorted = matches.slice().sort(function(a, b) {
+    return countWord(b.text, esc) - countWord(a.text, esc);
+  });
+
+  // Surfer way: sort by surfer score
+  var surfSorted = matches.slice().sort(function(a, b) {
+    return surferScores[idToIdx[b.id]] - surferScores[idToIdx[a.id]];
+  });
+
+  var oldHtml  = '';
+  var surfHtml = '';
+  oldSorted.forEach(function(p, i)  { oldHtml  += makeCard(i+1, p, esc, countWord(p.text, esc), true);  });
+  surfSorted.forEach(function(p, i) { surfHtml += makeCard(i+1, p, esc, surferScores[idToIdx[p.id]], false); });
+
+  document.getElementById('old-results').innerHTML  = oldHtml;
+  document.getElementById('surf-results').innerHTML = surfHtml;
+}
+
+// ── SEARCH LOGIC & INTERACTION ───────────────────────────────
+function doSearch() {
+  var word = document.getElementById('search-input').value.trim();
+  if (!word) return;
+  showResults(word);
+  triggerSparkleBurst(window.innerWidth / 2, 220, 20);
+}
+
+function quickSearch(word) {
+  document.getElementById('search-input').value = word;
+  updateClearBtn();
+  doSearch();
+}
+
+function handleSearchInput() {
+  updateClearBtn();
+  clearTimeout(searchDebounceTimer);
+  var word = document.getElementById('search-input').value.trim();
+  if (word.length >= 2) {
+    searchDebounceTimer = setTimeout(function() {
+      doSearch();
+    }, 280);
+  }
+}
+
+function updateClearBtn() {
+  var val = document.getElementById('search-input').value;
+  document.getElementById('clear-btn').style.display = val ? 'flex' : 'none';
+}
+
+function clearSearch() {
+  var input = document.getElementById('search-input');
+  input.value = '';
+  updateClearBtn();
+  input.focus();
+  document.getElementById('results-stats').style.display = 'none';
+}
+
+// ── SURPRISE RANDOM PICK ──────────────────────────────────────
+const POPULAR_WORDS = ['cricket', 'pizza', 'movie', 'coding', 'exam', 'food', 'travel', 'music', 'tech', 'actor', 'biryani', 'chai', 'algorithm', 'python', 'recipe', 'festival'];
+
+function randomSearch() {
+  var pick = POPULAR_WORDS[Math.floor(Math.random() * POPULAR_WORDS.length)];
+  document.getElementById('search-input').value = pick;
+  updateClearBtn();
+  doSearch();
+  showToast('✨ Exploring: "' + pick + '"');
+}
+
+// ── COPY URL HELPER ──────────────────────────────────────────
+function copyUrl(url) {
+  navigator.clipboard.writeText(url).then(function() {
+    showToast('Copied: ' + url + ' 📋✨');
+  }).catch(function() {
+    showToast('Copied ' + url + ' ✨');
+  });
+}
+
+function showToast(msg) {
+  var toast = document.getElementById('dream-toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(function() {
+    toast.classList.remove('show');
+  }, 2200);
+}
+
+// ── INTERACTIVE PAGE INSPECTOR MODAL ─────────────────────────
+function openInspector(pageId) {
+  var pageIdx = idToIdx[pageId];
+  if (pageIdx === undefined) return;
+  var page = PAGES[pageIdx];
+
+  document.getElementById('modal-title').innerHTML = '🔗 ' + page.url;
+
+  var currentWord = currentSearchWord || '';
+  var highlightedText = currentWord ? highlight(page.text, currentWord) : page.text;
+
+  // Outgoing links chips
+  var outgoingHtml = '';
+  if (page.links.length === 0) {
+    outgoingHtml = '<span style="font-size:12px; color:#94A3B8;">No outgoing links (dead end)</span>';
+  } else {
+    page.links.forEach(function(targetId) {
+      var tIdx = idToIdx[targetId];
+      var targetUrl = tIdx !== undefined ? PAGES[tIdx].url : 'page #' + targetId;
+      outgoingHtml += '<button class="link-chip" onclick="openInspector(' + targetId + ')">➡️ ' + targetUrl + '</button>';
+    });
+  }
+
+  // Incoming backlinks chips
+  var inLinks = incomingLinks[pageIdx];
+  var incomingHtml = '';
+  if (inLinks.length === 0) {
+    incomingHtml = '<span style="font-size:12px; color:#94A3B8;">No backlinks (no other pages link to this page)</span>';
+  } else {
+    inLinks.slice(0, 15).forEach(function(srcId) {
+      var sIdx = idToIdx[srcId];
+      var srcUrl = sIdx !== undefined ? PAGES[sIdx].url : 'page #' + srcId;
+      incomingHtml += '<button class="link-chip" onclick="openInspector(' + srcId + ')">⬅️ ' + srcUrl + '</button>';
+    });
+    if (inLinks.length > 15) {
+      incomingHtml += '<span style="font-size:12px; color:#6D28D9; font-weight:800;">+' + (inLinks.length - 15) + ' more</span>';
+    }
+  }
+
+  var scorePercent = (surferScores[pageIdx] * 100).toFixed(1);
+
+  var bodyHtml = ''
+    + '<div class="modal-section-title">Page Text</div>'
+    + '<div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:12px 16px; border-radius:14px; font-size:13.5px; line-height:1.6; color:#334155;">'
+    + highlightedText
+    + '</div>'
+    + '<div class="modal-section-title">Surfer 1998 Insights</div>'
+    + '<div style="display:flex; gap:12px; margin-bottom:12px;">'
+    + '  <div style="flex:1; background:#F0FDF4; border:1px solid #DCFCE7; padding:10px 14px; border-radius:12px; font-size:12.5px; color:#166534;">'
+    + '    🏄 Surfer Score: <strong>' + scorePercent + '%</strong>'
+    + '  </div>'
+    + '  <div style="flex:1; background:#EFF6FF; border:1px solid #DBEAFE; padding:10px 14px; border-radius:12px; font-size:12.5px; color:#1E40AF;">'
+    + '    🔗 Incoming Links: <strong>' + inLinkCount[pageIdx] + '</strong>'
+    + '  </div>'
+    + '</div>'
+    + '<div class="modal-section-title">Outgoing Links (Pages this links to)</div>'
+    + '<div class="modal-chips-container">' + outgoingHtml + '</div>'
+    + '<div class="modal-section-title">Backlinks (Pages linking to this)</div>'
+    + '<div class="modal-chips-container">' + incomingHtml + '</div>'
+    + '<div style="text-align:right; margin-top:14px;">'
+    + '  <button class="link-chip" style="background:#4C1D95; color:white; border:none; padding:7px 18px;" onclick="copyUrl(\'' + page.url + '\')">📋 Copy URL</button>'
+    + '</div>';
+
+  document.getElementById('modal-body').innerHTML = bodyHtml;
+  document.getElementById('inspector-modal').style.display = 'flex';
+}
+
+function closeInspector() {
+  document.getElementById('inspector-modal').style.display = 'none';
+}
+
+function closeInspectorOnBackdrop(e) {
+  if (e.target.id === 'inspector-modal') {
+    closeInspector();
+  }
+}
+
+// ── KEYBOARD EVENTS ──────────────────────────────────────────
+document.getElementById('search-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doSearch();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeInspector();
+});
+
+// ── DREAM STARDUST CANVAS ENGINE ──────────────────────────────
+var canvas = document.getElementById('dream-canvas');
+var ctx = canvas.getContext('2d');
+var particles = [];
+var sparkColors = ['#F472B6', '#38BDF8', '#34D399', '#FBBF24', '#C084FC', '#A78BFA', '#FDA4AF'];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function Particle(x, y, vx, vy, size, color, isStar) {
+  this.x = x;
+  this.y = y;
+  this.vx = vx;
+  this.vy = vy;
+  this.size = size;
+  this.color = color;
+  this.alpha = 1;
+  this.decay = Math.random() * 0.015 + 0.008;
+  this.isStar = isStar || false;
+  this.rotation = Math.random() * Math.PI * 2;
+}
+
+Particle.prototype.update = function() {
+  this.x += this.vx;
+  this.y += this.vy;
+  this.alpha -= this.decay;
+  this.rotation += 0.04;
+};
+
+Particle.prototype.draw = function(c) {
+  c.save();
+  c.globalAlpha = Math.max(0, this.alpha);
+  c.translate(this.x, this.y);
+  c.rotate(this.rotation);
+
+  if (this.isStar) {
+    c.fillStyle = this.color;
+    c.beginPath();
+    for (var i = 0; i < 5; i++) {
+      c.lineTo(Math.cos((18 + i * 72) * Math.PI / 180) * this.size,
+               -Math.sin((18 + i * 72) * Math.PI / 180) * this.size);
+      c.lineTo(Math.cos((54 + i * 72) * Math.PI / 180) * (this.size / 2.2),
+               -Math.sin((54 + i * 72) * Math.PI / 180) * (this.size / 2.2));
+    }
+    c.closePath();
+    c.fill();
+  } else {
+    c.beginPath();
+    c.arc(0, 0, this.size, 0, Math.PI * 2);
+    c.fillStyle = this.color;
+    c.shadowColor = this.color;
+    c.shadowBlur = 8;
+    c.fill();
+  }
+  c.restore();
+};
+
+function triggerSparkleBurst(x, y, count) {
+  for (var i = 0; i < count; i++) {
+    var angle = Math.random() * Math.PI * 2;
+    var speed = Math.random() * 4 + 1;
+    var size = Math.random() * 5 + 3;
+    var color = sparkColors[Math.floor(Math.random() * sparkColors.length)];
+    particles.push(new Particle(x, y, Math.cos(angle) * speed, Math.sin(angle) * speed, size, color, Math.random() > 0.4));
+  }
+}
+
+function addAmbientSparkle() {
+  if (particles.length < 50 && Math.random() < 0.4) {
+    var x = Math.random() * canvas.width;
+    var y = canvas.height + 10;
+    var color = sparkColors[Math.floor(Math.random() * sparkColors.length)];
+    particles.push(new Particle(x, y, (Math.random() - 0.5) * 0.8, -Math.random() * 1.5 - 0.5, Math.random() * 3 + 1.5, color, Math.random() > 0.5));
+  }
+}
+
+window.addEventListener('mousemove', function(e) {
+  if (Math.random() < 0.4) {
+    var color = sparkColors[Math.floor(Math.random() * sparkColors.length)];
+    particles.push(new Particle(
+      e.clientX,
+      e.clientY,
+      (Math.random() - 0.5) * 1.8,
+      (Math.random() - 0.5) * 1.8 - 0.4,
+      Math.random() * 4 + 2,
+      color,
+      Math.random() > 0.45
+    ));
+  }
+});
+
+window.addEventListener('click', function(e) {
+  triggerSparkleBurst(e.clientX, e.clientY, 12);
+});
+
+function animateCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  addAmbientSparkle();
+
+  for (var i = particles.length - 1; i >= 0; i--) {
+    particles[i].update();
+    particles[i].draw(ctx);
+    if (particles[i].alpha <= 0) {
+      particles.splice(i, 1);
+    }
+  }
+  requestAnimationFrame(animateCanvas);
+}
+animateCanvas();
+
+// Initial calculation on load
+runSurfer();
+</script>
+</body>
+</html>
